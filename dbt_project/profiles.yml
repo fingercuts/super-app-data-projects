@@ -1,0 +1,9 @@
+swifthub:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../data/swifthub.duckdb'
+      extensions:
+        - parquet
+      threads: 4
