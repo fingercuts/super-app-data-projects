@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: internal_production
+    description: "The core production data lake for SwiftHub, stored in Parquet format."
+    loader: pyarrow
+    tables:
+      - name: users
+        description: "Demographic data of SwiftHub users."
+        identifier: "../data/production/users.parquet"
+        external:
+          location: "../data/production/users.parquet"
+      
+      - name: drivers
+        description: "Operational data for the logistics fleet."
+        identifier: "../data/production/drivers.parquet"
+        external:
+          location: "../data/production/drivers.parquet"
+
+      - name: merchants
+        description: "Point-of-sale metadata for Foodora and QuickMart partners."
+        identifier: "../data/production/merchants.parquet"
+        external:
+          location: "../data/production/merchants.parquet"
+
+      - name: transactions
+        description: "The 2M+ record massive fact table."
+        identifier: "../data/production/transactions.parquet"
+        external:
+          location: "../data/production/transactions.parquet"
