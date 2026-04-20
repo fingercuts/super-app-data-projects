@@ -27,6 +27,7 @@ jobs:
     - name: Ensure Directory Structures
       run: |
         mkdir -p logs data/production/dlq
+        touch data/swifthub.duckdb
         
     - name: Execute Pytest Validation Matrices
       run: |
@@ -47,6 +48,11 @@ jobs:
       run: |
         pip install dbt-duckdb==1.7.2
         
+    - name: Ensure Directory Structures
+      run: |
+        mkdir -p data
+        touch data/swifthub.duckdb
+
     - name: DBT Compile
       run: |
         cd dbt_project && dbt compile
