@@ -1,0 +1,2482 @@
+[0m19:19:57.471573 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260AFCB1D60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260AFE4FEF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260AFE4EC00>]}
+
+
+============================== 19:19:57.478623 | 9ddf5196-15cb-4eb7-a70a-f099c6a032b6 ==============================
+[0m19:19:57.478623 [info ] [MainThread]: Running with dbt=1.7.19
+[0m19:19:57.479652 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': "C:\\Users\\Ade's PC\\OneDrive\\Dokumen\\Git\\super-app-data-projects\\dbt_project", 'version_check': 'True', 'debug': 'False', 'log_path': "C:\\Users\\Ade's PC\\OneDrive\\Dokumen\\Git\\super-app-data-projects\\dbt_project\\logs", 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt build --target dev', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m19:19:58.130477 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '9ddf5196-15cb-4eb7-a70a-f099c6a032b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260B108AFC0>]}
+[0m19:19:58.192571 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '9ddf5196-15cb-4eb7-a70a-f099c6a032b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260B0F76960>]}
+[0m19:19:58.195613 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m19:19:58.216603 [debug] [MainThread]: checksum: 7b8f7d4febbfc5f8b47662690941ab7a9f17369633611bd529eca733d14dc95e, vars: {}, profile: , target: dev, version: 1.7.19
+[0m19:19:58.218167 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m19:19:58.219164 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '9ddf5196-15cb-4eb7-a70a-f099c6a032b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260AFD27200>]}
+[0m19:20:00.657818 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '9ddf5196-15cb-4eb7-a70a-f099c6a032b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260B0FE2180>]}
+[0m19:20:00.699573 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '9ddf5196-15cb-4eb7-a70a-f099c6a032b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260B118CE00>]}
+[0m19:20:00.699573 [info ] [MainThread]: Found 9 models, 4 sources, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m19:20:00.702961 [info ] [MainThread]: 
+[0m19:20:00.704015 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m19:20:00.705575 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_swifthub'
+[0m19:20:00.721000 [debug] [ThreadPool]: Using duckdb connection "list_swifthub"
+[0m19:20:00.721000 [debug] [ThreadPool]: On list_swifthub: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "list_swifthub"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"swifthub"'
+    
+  
+  
+[0m19:20:00.721000 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:20:00.779913 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:20:00.782155 [debug] [ThreadPool]: On list_swifthub: Close
+[0m19:20:00.786215 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_swifthub, now create_swifthub_main)
+[0m19:20:00.787727 [debug] [ThreadPool]: Creating schema "database: "swifthub"
+schema: "main"
+"
+[0m19:20:00.795138 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:20:00.795680 [debug] [ThreadPool]: On create_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "create_swifthub_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='swifthub'
+        and type='sqlite'
+    
+  
+[0m19:20:00.796194 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m19:20:00.821603 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:20:00.823154 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:20:00.824173 [debug] [ThreadPool]: On create_swifthub_main: BEGIN
+[0m19:20:00.824677 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:20:00.824677 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:20:00.824677 [debug] [ThreadPool]: On create_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "create_swifthub_main"} */
+
+    
+    
+        create schema if not exists "swifthub"."main"
+    
+[0m19:20:00.827398 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:20:00.828412 [debug] [ThreadPool]: On create_swifthub_main: COMMIT
+[0m19:20:00.828412 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:20:00.829048 [debug] [ThreadPool]: On create_swifthub_main: COMMIT
+[0m19:20:00.829586 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:20:00.829586 [debug] [ThreadPool]: On create_swifthub_main: Close
+[0m19:20:00.835641 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_swifthub_main'
+[0m19:20:00.842417 [debug] [ThreadPool]: Using duckdb connection "list_swifthub_main"
+[0m19:20:00.843150 [debug] [ThreadPool]: On list_swifthub_main: BEGIN
+[0m19:20:00.843150 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:20:00.861177 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:20:00.861177 [debug] [ThreadPool]: Using duckdb connection "list_swifthub_main"
+[0m19:20:00.861177 [debug] [ThreadPool]: On list_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "list_swifthub_main"} */
+select
+      'swifthub' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'swifthub'
+  
+[0m19:20:00.886227 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:20:00.887284 [debug] [ThreadPool]: On list_swifthub_main: ROLLBACK
+[0m19:20:00.906454 [debug] [ThreadPool]: Failed to rollback 'list_swifthub_main'
+[0m19:20:00.906958 [debug] [ThreadPool]: On list_swifthub_main: Close
+[0m19:20:00.910242 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '9ddf5196-15cb-4eb7-a70a-f099c6a032b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260B13E70E0>]}
+[0m19:20:00.911255 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:20:00.911255 [debug] [MainThread]: On master: BEGIN
+[0m19:20:00.911255 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m19:20:00.929435 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:20:00.929435 [debug] [MainThread]: On master: COMMIT
+[0m19:20:00.929435 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:20:00.929435 [debug] [MainThread]: On master: COMMIT
+[0m19:20:00.930949 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:20:00.930949 [debug] [MainThread]: On master: Close
+[0m19:20:00.933972 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m19:20:00.935475 [info ] [MainThread]: 
+[0m19:20:00.941260 [debug] [Thread-1 (]: Began running node model.swifthub_analytics.fact_daily_revenue
+[0m19:20:00.941795 [debug] [Thread-2 (]: Began running node model.swifthub_analytics.stg_drivers
+[0m19:20:00.942330 [debug] [Thread-3 (]: Began running node model.swifthub_analytics.stg_merchants
+[0m19:20:00.942852 [debug] [Thread-4 (]: Began running node model.swifthub_analytics.stg_transactions
+[0m19:20:00.943373 [info ] [Thread-1 (]: 1 of 9 START sql table model main.fact_daily_revenue ........................... [RUN]
+[0m19:20:00.943890 [info ] [Thread-2 (]: 2 of 9 START sql view model main.stg_drivers ................................... [RUN]
+[0m19:20:00.944404 [info ] [Thread-3 (]: 3 of 9 START sql view model main.stg_merchants ................................. [RUN]
+[0m19:20:00.945430 [info ] [Thread-4 (]: 4 of 9 START sql view model main.stg_transactions .............................. [RUN]
+[0m19:20:00.946448 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.swifthub_analytics.fact_daily_revenue'
+[0m19:20:00.947482 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_drivers'
+[0m19:20:00.948509 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_merchants'
+[0m19:20:00.950057 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_transactions'
+[0m19:20:00.950590 [debug] [Thread-1 (]: Began compiling node model.swifthub_analytics.fact_daily_revenue
+[0m19:20:00.951113 [debug] [Thread-2 (]: Began compiling node model.swifthub_analytics.stg_drivers
+[0m19:20:00.952152 [debug] [Thread-3 (]: Began compiling node model.swifthub_analytics.stg_merchants
+[0m19:20:00.952487 [debug] [Thread-4 (]: Began compiling node model.swifthub_analytics.stg_transactions
+[0m19:20:00.960124 [debug] [Thread-1 (]: Writing injected SQL for node "model.swifthub_analytics.fact_daily_revenue"
+[0m19:20:00.964605 [debug] [Thread-2 (]: Writing injected SQL for node "model.swifthub_analytics.stg_drivers"
+[0m19:20:00.968301 [debug] [Thread-3 (]: Writing injected SQL for node "model.swifthub_analytics.stg_merchants"
+[0m19:20:00.972312 [debug] [Thread-4 (]: Writing injected SQL for node "model.swifthub_analytics.stg_transactions"
+[0m19:20:00.976853 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.stg_transactions (compile): 19:20:00.968806 => 19:20:00.976853
+[0m19:20:00.978493 [debug] [Thread-4 (]: Began executing node model.swifthub_analytics.stg_transactions
+[0m19:20:00.979012 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.stg_merchants (compile): 19:20:00.964605 => 19:20:00.979012
+[0m19:20:01.012966 [debug] [Thread-3 (]: Began executing node model.swifthub_analytics.stg_merchants
+[0m19:20:01.013973 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.fact_daily_revenue (compile): 19:20:00.952995 => 19:20:01.013470
+[0m19:20:01.019078 [debug] [Thread-4 (]: Writing runtime sql for node "model.swifthub_analytics.stg_transactions"
+[0m19:20:01.020082 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.stg_drivers (compile): 19:20:00.961125 => 19:20:01.020082
+[0m19:20:01.024617 [debug] [Thread-3 (]: Writing runtime sql for node "model.swifthub_analytics.stg_merchants"
+[0m19:20:01.025620 [debug] [Thread-1 (]: Began executing node model.swifthub_analytics.fact_daily_revenue
+[0m19:20:01.025620 [debug] [Thread-2 (]: Began executing node model.swifthub_analytics.stg_drivers
+[0m19:20:01.049617 [debug] [Thread-1 (]: Writing runtime sql for node "model.swifthub_analytics.fact_daily_revenue"
+[0m19:20:01.055577 [debug] [Thread-2 (]: Writing runtime sql for node "model.swifthub_analytics.stg_drivers"
+[0m19:20:01.059547 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:20:01.061378 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: BEGIN
+[0m19:20:01.061883 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m19:20:01.061883 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:20:01.062885 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: BEGIN
+[0m19:20:01.063390 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:20:01.064395 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:20:01.064395 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m19:20:01.065402 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: BEGIN
+[0m19:20:01.065402 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: BEGIN
+[0m19:20:01.066404 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m19:20:01.066909 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m19:20:01.079000 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:20:01.079515 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:20:01.079515 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:20:01.079515 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:20:01.080551 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:20:01.080551 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fact_daily_revenue"} */
+
+  
+    
+    
+
+    create  table
+      "swifthub"."main"."fact_daily_revenue__dbt_tmp"
+  
+    as (
+      
+
+WITH raw_transactions AS (
+    -- DuckDB natively binds exactly to local massive parquet files
+    SELECT *
+    FROM read_parquet('../data/production/transactions.parquet')
+)
+
+SELECT
+    date_trunc('day', CAST(date AS TIMESTAMP)) AS transaction_date,
+    department,
+    service_id,
+    COUNT(transaction_id) as total_tx_volume,
+    SUM(total_amount) as total_gross_revenue,
+    AVG(total_amount) as average_basket_size
+FROM raw_transactions
+GROUP BY 1, 2, 3
+ORDER BY 1 DESC, 5 DESC
+    );
+  
+  
+[0m19:20:01.081564 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:20:01.081564 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:20:01.081564 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:20:01.082567 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_merchants"} */
+
+  
+  create view "swifthub"."main"."stg_merchants__dbt_tmp" as (
+    
+
+WITH raw_merchants AS (
+    SELECT * FROM read_parquet('../data/production/merchants.parquet')
+)
+
+SELECT
+    CAST(merchant_id AS VARCHAR) AS merchant_id,
+    CAST(merchant_name AS VARCHAR) AS merchant_name,
+    CAST(service_type AS VARCHAR) AS service_type,
+    CAST(department AS VARCHAR) AS department,
+    CAST(city AS VARCHAR) AS city,
+    CAST(rating AS DOUBLE) AS merchant_rating
+FROM raw_merchants
+  );
+
+[0m19:20:01.083661 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_transactions"} */
+
+  
+  create view "swifthub"."main"."stg_transactions__dbt_tmp" as (
+    
+
+WITH raw_transactions AS (
+    SELECT * FROM read_parquet('../data/production/transactions.parquet')
+)
+
+SELECT
+    CAST(transaction_id AS VARCHAR) AS transaction_id,
+    CAST(date AS TIMESTAMP) AS transaction_timestamp,
+    CAST(user_id AS VARCHAR) AS user_id,
+    CAST(driver_id AS VARCHAR) AS driver_id,
+    CAST(merchant_id AS VARCHAR) AS merchant_id,
+    CAST(service_id AS VARCHAR) AS service_id,
+    CAST(quantity AS INTEGER) AS quantity,
+    CAST(base_amount AS DOUBLE) AS base_amount,
+    CAST(discounted_amount AS DOUBLE) AS discounted_amount,
+    CAST(total_amount AS DOUBLE) AS total_amount,
+    CAST(payment_method AS VARCHAR) AS payment_method,
+    CAST(department AS VARCHAR) AS department,
+    CAST(city AS VARCHAR) AS city,
+    CAST(region AS VARCHAR) AS region,
+    CAST(promotion_id AS VARCHAR) AS promotion_id
+FROM raw_transactions
+  );
+
+[0m19:20:01.083661 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_drivers"} */
+
+  
+  create view "swifthub"."main"."stg_drivers__dbt_tmp" as (
+    
+
+WITH raw_drivers AS (
+    SELECT * FROM read_parquet('../data/production/drivers.parquet')
+)
+
+SELECT
+    CAST(driver_id AS VARCHAR) AS driver_id,
+    CAST(name AS VARCHAR) AS name,
+    CAST(gender AS VARCHAR) AS gender,
+    CAST(age AS INTEGER) AS age,
+    CAST(city AS VARCHAR) AS city,
+    CAST(vehicle_type AS VARCHAR) AS vehicle_type,
+    CAST(rating AS DOUBLE) AS driver_rating
+FROM raw_drivers
+  );
+
+[0m19:20:01.094176 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.stg_merchants (execute): 19:20:01.021087 => 19:20:01.092885
+[0m19:20:01.094680 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.stg_transactions (execute): 19:20:00.980017 => 19:20:01.094680
+[0m19:20:01.095689 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.fact_daily_revenue (execute): 19:20:01.025620 => 19:20:01.094680
+[0m19:20:01.096194 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.stg_drivers (execute): 19:20:01.049617 => 19:20:01.096194
+[0m19:20:01.096194 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: ROLLBACK
+[0m19:20:01.097738 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: ROLLBACK
+[0m19:20:01.097738 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: ROLLBACK
+[0m19:20:01.098794 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: ROLLBACK
+[0m19:20:01.246972 [debug] [Thread-2 (]: Failed to rollback 'model.swifthub_analytics.stg_drivers'
+[0m19:20:01.248565 [debug] [Thread-1 (]: Failed to rollback 'model.swifthub_analytics.fact_daily_revenue'
+[0m19:20:01.250128 [debug] [Thread-3 (]: Failed to rollback 'model.swifthub_analytics.stg_merchants'
+[0m19:20:01.251885 [debug] [Thread-4 (]: Failed to rollback 'model.swifthub_analytics.stg_transactions'
+[0m19:20:01.252410 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: Close
+[0m19:20:01.252950 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: Close
+[0m19:20:01.253480 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: Close
+[0m19:20:01.254010 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: Close
+[0m19:20:01.258611 [debug] [Thread-1 (]: Runtime Error in model fact_daily_revenue (models\marts\fact_daily_revenue.sql)
+  IO Error: No files found that match the pattern "../data/production/transactions.parquet"
+  
+  LINE 16:     FROM read_parquet('../data/production/transactions.parquet')
+                    ^
+[0m19:20:01.260461 [debug] [Thread-2 (]: Runtime Error in model stg_drivers (models\staging\stg_drivers.sql)
+  IO Error: No files found that match the pattern "../data/production/drivers.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/drivers.parquet')
+                            ^
+[0m19:20:01.261471 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9ddf5196-15cb-4eb7-a70a-f099c6a032b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260B1221730>]}
+[0m19:20:01.263492 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9ddf5196-15cb-4eb7-a70a-f099c6a032b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260B12233B0>]}
+[0m19:20:01.265518 [debug] [Thread-3 (]: Runtime Error in model stg_merchants (models\staging\stg_merchants.sql)
+  IO Error: No files found that match the pattern "../data/production/merchants.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/merchants.parquet')
+                            ^
+[0m19:20:01.267329 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9ddf5196-15cb-4eb7-a70a-f099c6a032b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260B1228E90>]}
+[0m19:20:01.263492 [error] [Thread-1 (]: 1 of 9 ERROR creating sql table model main.fact_daily_revenue .................. [[31mERROR[0m in 0.32s]
+[0m19:20:01.266541 [error] [Thread-2 (]: 2 of 9 ERROR creating sql view model main.stg_drivers .......................... [[31mERROR[0m in 0.32s]
+[0m19:20:01.269425 [debug] [Thread-4 (]: Runtime Error in model stg_transactions (models\staging\stg_transactions.sql)
+  IO Error: No files found that match the pattern "../data/production/transactions.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/transactions.parquet')
+                            ^
+[0m19:20:01.268364 [error] [Thread-3 (]: 3 of 9 ERROR creating sql view model main.stg_merchants ........................ [[31mERROR[0m in 0.32s]
+[0m19:20:01.270687 [debug] [Thread-1 (]: Finished running node model.swifthub_analytics.fact_daily_revenue
+[0m19:20:01.271368 [debug] [Thread-2 (]: Finished running node model.swifthub_analytics.stg_drivers
+[0m19:20:01.271896 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9ddf5196-15cb-4eb7-a70a-f099c6a032b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260B122AD80>]}
+[0m19:20:01.272918 [debug] [Thread-3 (]: Finished running node model.swifthub_analytics.stg_merchants
+[0m19:20:01.273430 [debug] [Thread-1 (]: Began running node model.swifthub_analytics.stg_users
+[0m19:20:01.275522 [debug] [Thread-2 (]: Began running node model.swifthub_analytics.dim_drivers
+[0m19:20:01.274996 [error] [Thread-4 (]: 4 of 9 ERROR creating sql view model main.stg_transactions ..................... [[31mERROR[0m in 0.32s]
+[0m19:20:01.276604 [debug] [Thread-3 (]: Began running node model.swifthub_analytics.dim_merchants
+[0m19:20:01.277662 [info ] [Thread-1 (]: 5 of 9 START sql view model main.stg_users ..................................... [RUN]
+[0m19:20:01.278302 [info ] [Thread-2 (]: 6 of 9 SKIP relation main.dim_drivers .......................................... [[33mSKIP[0m]
+[0m19:20:01.278898 [debug] [Thread-4 (]: Finished running node model.swifthub_analytics.stg_transactions
+[0m19:20:01.279902 [info ] [Thread-3 (]: 7 of 9 SKIP relation main.dim_merchants ........................................ [[33mSKIP[0m]
+[0m19:20:01.280990 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.swifthub_analytics.fact_daily_revenue, now model.swifthub_analytics.stg_users)
+[0m19:20:01.281513 [debug] [Thread-2 (]: Finished running node model.swifthub_analytics.dim_drivers
+[0m19:20:01.282028 [debug] [Thread-3 (]: Finished running node model.swifthub_analytics.dim_merchants
+[0m19:20:01.282546 [debug] [Thread-4 (]: Began running node model.swifthub_analytics.fct_transactions
+[0m19:20:01.283074 [debug] [Thread-1 (]: Began compiling node model.swifthub_analytics.stg_users
+[0m19:20:01.287766 [debug] [Thread-1 (]: Writing injected SQL for node "model.swifthub_analytics.stg_users"
+[0m19:20:01.284133 [info ] [Thread-4 (]: 8 of 9 SKIP relation main.fct_transactions ..................................... [[33mSKIP[0m]
+[0m19:20:01.288806 [debug] [Thread-4 (]: Finished running node model.swifthub_analytics.fct_transactions
+[0m19:20:01.290448 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.stg_users (compile): 19:20:01.284656 => 19:20:01.289839
+[0m19:20:01.291172 [debug] [Thread-1 (]: Began executing node model.swifthub_analytics.stg_users
+[0m19:20:01.298695 [debug] [Thread-1 (]: Writing runtime sql for node "model.swifthub_analytics.stg_users"
+[0m19:20:01.300214 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:20:01.301222 [debug] [Thread-1 (]: On model.swifthub_analytics.stg_users: BEGIN
+[0m19:20:01.302289 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m19:20:01.321927 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:20:01.321927 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:20:01.322931 [debug] [Thread-1 (]: On model.swifthub_analytics.stg_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_users"} */
+
+  
+  create view "swifthub"."main"."stg_users__dbt_tmp" as (
+    
+
+WITH raw_users AS (
+    SELECT * FROM read_parquet('../data/production/users.parquet')
+)
+
+SELECT
+    CAST(user_id AS VARCHAR) AS user_id,
+    CAST(name AS VARCHAR) AS name,
+    CAST(gender AS VARCHAR) AS gender,
+    CAST(age AS INTEGER) AS age,
+    CAST(city AS VARCHAR) AS city,
+    CAST(region AS VARCHAR) AS region,
+    CAST(loyalty_tier AS VARCHAR) AS loyalty_tier,
+    CAST(churn_risk_score AS DOUBLE) AS churn_risk_score
+FROM raw_users
+  );
+
+[0m19:20:01.325050 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.stg_users (execute): 19:20:01.291704 => 19:20:01.324517
+[0m19:20:01.325561 [debug] [Thread-1 (]: On model.swifthub_analytics.stg_users: ROLLBACK
+[0m19:20:01.328419 [debug] [Thread-1 (]: Failed to rollback 'model.swifthub_analytics.stg_users'
+[0m19:20:01.329462 [debug] [Thread-1 (]: On model.swifthub_analytics.stg_users: Close
+[0m19:20:01.334662 [debug] [Thread-1 (]: Runtime Error in model stg_users (models\staging\stg_users.sql)
+  IO Error: No files found that match the pattern "../data/production/users.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/users.parquet')
+                            ^
+[0m19:20:01.335681 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9ddf5196-15cb-4eb7-a70a-f099c6a032b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260B1221310>]}
+[0m19:20:01.336196 [error] [Thread-1 (]: 5 of 9 ERROR creating sql view model main.stg_users ............................ [[31mERROR[0m in 0.05s]
+[0m19:20:01.336762 [debug] [Thread-1 (]: Finished running node model.swifthub_analytics.stg_users
+[0m19:20:01.338270 [debug] [Thread-2 (]: Began running node model.swifthub_analytics.dim_users
+[0m19:20:01.338832 [info ] [Thread-2 (]: 9 of 9 SKIP relation main.dim_users ............................................ [[33mSKIP[0m]
+[0m19:20:01.339847 [debug] [Thread-2 (]: Finished running node model.swifthub_analytics.dim_users
+[0m19:20:01.342029 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:20:01.342534 [debug] [MainThread]: On master: BEGIN
+[0m19:20:01.342534 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m19:20:01.364697 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:20:01.365207 [debug] [MainThread]: On master: COMMIT
+[0m19:20:01.365884 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:20:01.366397 [debug] [MainThread]: On master: COMMIT
+[0m19:20:01.367407 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:20:01.368408 [debug] [MainThread]: On master: Close
+[0m19:20:01.372442 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:20:01.372960 [debug] [MainThread]: Connection 'create_swifthub_main' was properly closed.
+[0m19:20:01.373479 [debug] [MainThread]: Connection 'list_swifthub_main' was properly closed.
+[0m19:20:01.373479 [debug] [MainThread]: Connection 'model.swifthub_analytics.stg_users' was properly closed.
+[0m19:20:01.373479 [debug] [MainThread]: Connection 'model.swifthub_analytics.stg_drivers' was properly closed.
+[0m19:20:01.374495 [debug] [MainThread]: Connection 'model.swifthub_analytics.stg_merchants' was properly closed.
+[0m19:20:01.374495 [debug] [MainThread]: Connection 'model.swifthub_analytics.stg_transactions' was properly closed.
+[0m19:20:01.376003 [info ] [MainThread]: 
+[0m19:20:01.377020 [info ] [MainThread]: Finished running 5 table models, 4 view models in 0 hours 0 minutes and 0.67 seconds (0.67s).
+[0m19:20:01.378730 [debug] [MainThread]: Command end result
+[0m19:20:01.392740 [info ] [MainThread]: 
+[0m19:20:01.393249 [info ] [MainThread]: [31mCompleted with 5 errors and 0 warnings:[0m
+[0m19:20:01.393249 [info ] [MainThread]: 
+[0m19:20:01.393249 [error] [MainThread]:   Runtime Error in model fact_daily_revenue (models\marts\fact_daily_revenue.sql)
+  IO Error: No files found that match the pattern "../data/production/transactions.parquet"
+  
+  LINE 16:     FROM read_parquet('../data/production/transactions.parquet')
+                    ^
+[0m19:20:01.394766 [info ] [MainThread]: 
+[0m19:20:01.395286 [error] [MainThread]:   Runtime Error in model stg_drivers (models\staging\stg_drivers.sql)
+  IO Error: No files found that match the pattern "../data/production/drivers.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/drivers.parquet')
+                            ^
+[0m19:20:01.396291 [info ] [MainThread]: 
+[0m19:20:01.396798 [error] [MainThread]:   Runtime Error in model stg_merchants (models\staging\stg_merchants.sql)
+  IO Error: No files found that match the pattern "../data/production/merchants.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/merchants.parquet')
+                            ^
+[0m19:20:01.397456 [info ] [MainThread]: 
+[0m19:20:01.398627 [error] [MainThread]:   Runtime Error in model stg_transactions (models\staging\stg_transactions.sql)
+  IO Error: No files found that match the pattern "../data/production/transactions.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/transactions.parquet')
+                            ^
+[0m19:20:01.399131 [info ] [MainThread]: 
+[0m19:20:01.399646 [error] [MainThread]:   Runtime Error in model stg_users (models\staging\stg_users.sql)
+  IO Error: No files found that match the pattern "../data/production/users.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/users.parquet')
+                            ^
+[0m19:20:01.400212 [info ] [MainThread]: 
+[0m19:20:01.400592 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=5 SKIP=4 TOTAL=9
+[0m19:20:01.402333 [debug] [MainThread]: Command `dbt build` failed at 19:20:01.401095 after 4.07 seconds
+[0m19:20:01.402844 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260AFE4E690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260AFE4FB60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000260AFE4EF00>]}
+[0m19:20:01.403856 [debug] [MainThread]: Flushing usage events
+[0m19:20:11.106861 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAE81AEA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAE9F2180>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAE9F1520>]}
+
+
+============================== 19:20:11.109619 | 134b43cd-db4f-400d-8c64-bbb4334c4869 ==============================
+[0m19:20:11.109619 [info ] [MainThread]: Running with dbt=1.7.19
+[0m19:20:11.109619 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': "C:\\Users\\Ade's PC\\OneDrive\\Dokumen\\Git\\super-app-data-projects\\dbt_project\\logs", 'profiles_dir': "C:\\Users\\Ade's PC\\OneDrive\\Dokumen\\Git\\super-app-data-projects\\dbt_project", 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt build --target dev', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m19:20:11.486236 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '134b43cd-db4f-400d-8c64-bbb4334c4869', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAEA438C0>]}
+[0m19:20:11.548740 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '134b43cd-db4f-400d-8c64-bbb4334c4869', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAE7D9F70>]}
+[0m19:20:11.550495 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m19:20:11.559409 [debug] [MainThread]: checksum: 7b8f7d4febbfc5f8b47662690941ab7a9f17369633611bd529eca733d14dc95e, vars: {}, profile: , target: dev, version: 1.7.19
+[0m19:20:11.633819 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m19:20:11.633819 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m19:20:11.642086 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '134b43cd-db4f-400d-8c64-bbb4334c4869', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAE9C6630>]}
+[0m19:20:11.655646 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '134b43cd-db4f-400d-8c64-bbb4334c4869', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAFDC5010>]}
+[0m19:20:11.656158 [info ] [MainThread]: Found 9 models, 4 sources, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m19:20:11.658521 [info ] [MainThread]: 
+[0m19:20:11.660045 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m19:20:11.660555 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_swifthub'
+[0m19:20:11.676480 [debug] [ThreadPool]: Using duckdb connection "list_swifthub"
+[0m19:20:11.676480 [debug] [ThreadPool]: On list_swifthub: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "list_swifthub"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"swifthub"'
+    
+  
+  
+[0m19:20:11.676480 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:20:11.699151 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:20:11.700653 [debug] [ThreadPool]: On list_swifthub: Close
+[0m19:20:11.704330 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_swifthub, now create_swifthub_main)
+[0m19:20:11.705340 [debug] [ThreadPool]: Creating schema "database: "swifthub"
+schema: "main"
+"
+[0m19:20:11.712919 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:20:11.713427 [debug] [ThreadPool]: On create_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "create_swifthub_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='swifthub'
+        and type='sqlite'
+    
+  
+[0m19:20:11.713427 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m19:20:11.732834 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:20:11.736855 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:20:11.737852 [debug] [ThreadPool]: On create_swifthub_main: BEGIN
+[0m19:20:11.739883 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:20:11.740899 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:20:11.741897 [debug] [ThreadPool]: On create_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "create_swifthub_main"} */
+
+    
+    
+        create schema if not exists "swifthub"."main"
+    
+[0m19:20:11.743900 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:20:11.744901 [debug] [ThreadPool]: On create_swifthub_main: COMMIT
+[0m19:20:11.745409 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:20:11.745409 [debug] [ThreadPool]: On create_swifthub_main: COMMIT
+[0m19:20:11.746881 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:20:11.746881 [debug] [ThreadPool]: On create_swifthub_main: Close
+[0m19:20:11.752648 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_swifthub_main'
+[0m19:20:11.765336 [debug] [ThreadPool]: Using duckdb connection "list_swifthub_main"
+[0m19:20:11.765336 [debug] [ThreadPool]: On list_swifthub_main: BEGIN
+[0m19:20:11.765336 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:20:11.783300 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:20:11.783300 [debug] [ThreadPool]: Using duckdb connection "list_swifthub_main"
+[0m19:20:11.784304 [debug] [ThreadPool]: On list_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "list_swifthub_main"} */
+select
+      'swifthub' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'swifthub'
+  
+[0m19:20:11.801515 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:20:11.803397 [debug] [ThreadPool]: On list_swifthub_main: ROLLBACK
+[0m19:20:11.804961 [debug] [ThreadPool]: Failed to rollback 'list_swifthub_main'
+[0m19:20:11.805464 [debug] [ThreadPool]: On list_swifthub_main: Close
+[0m19:20:11.810490 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '134b43cd-db4f-400d-8c64-bbb4334c4869', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAD86D940>]}
+[0m19:20:11.813003 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:20:11.813442 [debug] [MainThread]: On master: BEGIN
+[0m19:20:11.813948 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m19:20:11.829595 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:20:11.829595 [debug] [MainThread]: On master: COMMIT
+[0m19:20:11.830604 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:20:11.831061 [debug] [MainThread]: On master: COMMIT
+[0m19:20:11.832068 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:20:11.832068 [debug] [MainThread]: On master: Close
+[0m19:20:11.835606 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m19:20:11.836113 [info ] [MainThread]: 
+[0m19:20:11.841138 [debug] [Thread-1 (]: Began running node model.swifthub_analytics.fact_daily_revenue
+[0m19:20:11.841138 [debug] [Thread-2 (]: Began running node model.swifthub_analytics.stg_drivers
+[0m19:20:11.841645 [debug] [Thread-3 (]: Began running node model.swifthub_analytics.stg_merchants
+[0m19:20:11.842153 [debug] [Thread-4 (]: Began running node model.swifthub_analytics.stg_transactions
+[0m19:20:11.842661 [info ] [Thread-1 (]: 1 of 9 START sql table model main.fact_daily_revenue ........................... [RUN]
+[0m19:20:11.843181 [info ] [Thread-2 (]: 2 of 9 START sql view model main.stg_drivers ................................... [RUN]
+[0m19:20:11.844216 [info ] [Thread-3 (]: 3 of 9 START sql view model main.stg_merchants ................................. [RUN]
+[0m19:20:11.844727 [info ] [Thread-4 (]: 4 of 9 START sql view model main.stg_transactions .............................. [RUN]
+[0m19:20:11.845763 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.swifthub_analytics.fact_daily_revenue'
+[0m19:20:11.847397 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_drivers'
+[0m19:20:11.848421 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_merchants'
+[0m19:20:11.848930 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_transactions'
+[0m19:20:11.849948 [debug] [Thread-1 (]: Began compiling node model.swifthub_analytics.fact_daily_revenue
+[0m19:20:11.849948 [debug] [Thread-2 (]: Began compiling node model.swifthub_analytics.stg_drivers
+[0m19:20:11.850461 [debug] [Thread-3 (]: Began compiling node model.swifthub_analytics.stg_merchants
+[0m19:20:11.850973 [debug] [Thread-4 (]: Began compiling node model.swifthub_analytics.stg_transactions
+[0m19:20:11.859906 [debug] [Thread-1 (]: Writing injected SQL for node "model.swifthub_analytics.fact_daily_revenue"
+[0m19:20:11.863684 [debug] [Thread-2 (]: Writing injected SQL for node "model.swifthub_analytics.stg_drivers"
+[0m19:20:11.866767 [debug] [Thread-3 (]: Writing injected SQL for node "model.swifthub_analytics.stg_merchants"
+[0m19:20:11.869335 [debug] [Thread-4 (]: Writing injected SQL for node "model.swifthub_analytics.stg_transactions"
+[0m19:20:11.871844 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.fact_daily_revenue (compile): 19:20:11.851482 => 19:20:11.870338
+[0m19:20:11.871844 [debug] [Thread-1 (]: Began executing node model.swifthub_analytics.fact_daily_revenue
+[0m19:20:11.907956 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.stg_merchants (compile): 19:20:11.863684 => 19:20:11.907956
+[0m19:20:11.909287 [debug] [Thread-3 (]: Began executing node model.swifthub_analytics.stg_merchants
+[0m19:20:11.928493 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.stg_transactions (compile): 19:20:11.866767 => 19:20:11.928493
+[0m19:20:11.929031 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.stg_drivers (compile): 19:20:11.859906 => 19:20:11.929031
+[0m19:20:11.932340 [debug] [Thread-3 (]: Writing runtime sql for node "model.swifthub_analytics.stg_merchants"
+[0m19:20:11.936197 [debug] [Thread-1 (]: Writing runtime sql for node "model.swifthub_analytics.fact_daily_revenue"
+[0m19:20:11.936197 [debug] [Thread-4 (]: Began executing node model.swifthub_analytics.stg_transactions
+[0m19:20:11.937717 [debug] [Thread-2 (]: Began executing node model.swifthub_analytics.stg_drivers
+[0m19:20:11.943235 [debug] [Thread-4 (]: Writing runtime sql for node "model.swifthub_analytics.stg_transactions"
+[0m19:20:11.947973 [debug] [Thread-2 (]: Writing runtime sql for node "model.swifthub_analytics.stg_drivers"
+[0m19:20:11.949039 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:20:11.950041 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: BEGIN
+[0m19:20:11.950548 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m19:20:11.950548 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:20:11.951554 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: BEGIN
+[0m19:20:11.951554 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m19:20:11.952566 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:20:11.953566 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: BEGIN
+[0m19:20:11.954073 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m19:20:11.952566 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:20:11.954073 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: BEGIN
+[0m19:20:11.955078 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m19:20:11.966607 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:20:11.967920 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:20:11.968425 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:20:11.968425 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fact_daily_revenue"} */
+
+  
+    
+    
+
+    create  table
+      "swifthub"."main"."fact_daily_revenue__dbt_tmp"
+  
+    as (
+      
+
+WITH raw_transactions AS (
+    -- DuckDB natively binds exactly to local massive parquet files
+    SELECT *
+    FROM read_parquet('../data/production/transactions.parquet')
+)
+
+SELECT
+    date_trunc('day', CAST(date AS TIMESTAMP)) AS transaction_date,
+    department,
+    service_id,
+    COUNT(transaction_id) as total_tx_volume,
+    SUM(total_amount) as total_gross_revenue,
+    AVG(total_amount) as average_basket_size
+FROM raw_transactions
+GROUP BY 1, 2, 3
+ORDER BY 1 DESC, 5 DESC
+    );
+  
+  
+[0m19:20:11.969471 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:20:11.969471 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:20:11.969471 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:20:11.970476 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:20:11.970476 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:20:11.971479 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.fact_daily_revenue (execute): 19:20:11.872851 => 19:20:11.971479
+[0m19:20:11.972480 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_merchants"} */
+
+  
+  create view "swifthub"."main"."stg_merchants__dbt_tmp" as (
+    
+
+WITH raw_merchants AS (
+    SELECT * FROM read_parquet('../data/production/merchants.parquet')
+)
+
+SELECT
+    CAST(merchant_id AS VARCHAR) AS merchant_id,
+    CAST(merchant_name AS VARCHAR) AS merchant_name,
+    CAST(service_type AS VARCHAR) AS service_type,
+    CAST(department AS VARCHAR) AS department,
+    CAST(city AS VARCHAR) AS city,
+    CAST(rating AS DOUBLE) AS merchant_rating
+FROM raw_merchants
+  );
+
+[0m19:20:11.972480 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_drivers"} */
+
+  
+  create view "swifthub"."main"."stg_drivers__dbt_tmp" as (
+    
+
+WITH raw_drivers AS (
+    SELECT * FROM read_parquet('../data/production/drivers.parquet')
+)
+
+SELECT
+    CAST(driver_id AS VARCHAR) AS driver_id,
+    CAST(name AS VARCHAR) AS name,
+    CAST(gender AS VARCHAR) AS gender,
+    CAST(age AS INTEGER) AS age,
+    CAST(city AS VARCHAR) AS city,
+    CAST(vehicle_type AS VARCHAR) AS vehicle_type,
+    CAST(rating AS DOUBLE) AS driver_rating
+FROM raw_drivers
+  );
+
+[0m19:20:11.972480 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_transactions"} */
+
+  
+  create view "swifthub"."main"."stg_transactions__dbt_tmp" as (
+    
+
+WITH raw_transactions AS (
+    SELECT * FROM read_parquet('../data/production/transactions.parquet')
+)
+
+SELECT
+    CAST(transaction_id AS VARCHAR) AS transaction_id,
+    CAST(date AS TIMESTAMP) AS transaction_timestamp,
+    CAST(user_id AS VARCHAR) AS user_id,
+    CAST(driver_id AS VARCHAR) AS driver_id,
+    CAST(merchant_id AS VARCHAR) AS merchant_id,
+    CAST(service_id AS VARCHAR) AS service_id,
+    CAST(quantity AS INTEGER) AS quantity,
+    CAST(base_amount AS DOUBLE) AS base_amount,
+    CAST(discounted_amount AS DOUBLE) AS discounted_amount,
+    CAST(total_amount AS DOUBLE) AS total_amount,
+    CAST(payment_method AS VARCHAR) AS payment_method,
+    CAST(department AS VARCHAR) AS department,
+    CAST(city AS VARCHAR) AS city,
+    CAST(region AS VARCHAR) AS region,
+    CAST(promotion_id AS VARCHAR) AS promotion_id
+FROM raw_transactions
+  );
+
+[0m19:20:11.973526 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: ROLLBACK
+[0m19:20:11.975568 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.stg_drivers (execute): 19:20:11.943235 => 19:20:11.974564
+[0m19:20:11.976072 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.stg_merchants (execute): 19:20:11.909794 => 19:20:11.976072
+[0m19:20:11.977518 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.stg_transactions (execute): 19:20:11.937717 => 19:20:11.976072
+[0m19:20:11.977518 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: ROLLBACK
+[0m19:20:11.979548 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: ROLLBACK
+[0m19:20:11.980207 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: ROLLBACK
+[0m19:20:11.991629 [debug] [Thread-2 (]: Failed to rollback 'model.swifthub_analytics.stg_drivers'
+[0m19:20:11.993654 [debug] [Thread-4 (]: Failed to rollback 'model.swifthub_analytics.stg_transactions'
+[0m19:20:11.995672 [debug] [Thread-1 (]: Failed to rollback 'model.swifthub_analytics.fact_daily_revenue'
+[0m19:20:11.998028 [debug] [Thread-3 (]: Failed to rollback 'model.swifthub_analytics.stg_merchants'
+[0m19:20:11.998532 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: Close
+[0m19:20:11.998532 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: Close
+[0m19:20:11.999543 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: Close
+[0m19:20:12.000046 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: Close
+[0m19:20:12.004237 [debug] [Thread-2 (]: Runtime Error in model stg_drivers (models\staging\stg_drivers.sql)
+  IO Error: No files found that match the pattern "../data/production/drivers.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/drivers.parquet')
+                            ^
+[0m19:20:12.006261 [debug] [Thread-4 (]: Runtime Error in model stg_transactions (models\staging\stg_transactions.sql)
+  IO Error: No files found that match the pattern "../data/production/transactions.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/transactions.parquet')
+                            ^
+[0m19:20:12.006827 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '134b43cd-db4f-400d-8c64-bbb4334c4869', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAFF4E420>]}
+[0m19:20:12.008091 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '134b43cd-db4f-400d-8c64-bbb4334c4869', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAFF010D0>]}
+[0m19:20:12.008091 [error] [Thread-2 (]: 2 of 9 ERROR creating sql view model main.stg_drivers .......................... [[31mERROR[0m in 0.16s]
+[0m19:20:12.010561 [error] [Thread-4 (]: 4 of 9 ERROR creating sql view model main.stg_transactions ..................... [[31mERROR[0m in 0.16s]
+[0m19:20:12.011593 [debug] [Thread-2 (]: Finished running node model.swifthub_analytics.stg_drivers
+[0m19:20:12.012279 [debug] [Thread-4 (]: Finished running node model.swifthub_analytics.stg_transactions
+[0m19:20:12.013775 [debug] [Thread-1 (]: Runtime Error in model fact_daily_revenue (models\marts\fact_daily_revenue.sql)
+  IO Error: No files found that match the pattern "../data/production/transactions.parquet"
+  
+  LINE 16:     FROM read_parquet('../data/production/transactions.parquet')
+                    ^
+[0m19:20:12.014815 [debug] [Thread-2 (]: Began running node model.swifthub_analytics.stg_users
+[0m19:20:12.015653 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '134b43cd-db4f-400d-8c64-bbb4334c4869', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAFEE9C70>]}
+[0m19:20:12.016677 [info ] [Thread-2 (]: 5 of 9 START sql view model main.stg_users ..................................... [RUN]
+[0m19:20:12.017713 [debug] [Thread-4 (]: Began running node model.swifthub_analytics.dim_drivers
+[0m19:20:12.018233 [error] [Thread-1 (]: 1 of 9 ERROR creating sql table model main.fact_daily_revenue .................. [[31mERROR[0m in 0.17s]
+[0m19:20:12.019298 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.swifthub_analytics.stg_drivers, now model.swifthub_analytics.stg_users)
+[0m19:20:12.020332 [debug] [Thread-3 (]: Runtime Error in model stg_merchants (models\staging\stg_merchants.sql)
+  IO Error: No files found that match the pattern "../data/production/merchants.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/merchants.parquet')
+                            ^
+[0m19:20:12.020908 [info ] [Thread-4 (]: 6 of 9 SKIP relation main.dim_drivers .......................................... [[33mSKIP[0m]
+[0m19:20:12.021434 [debug] [Thread-1 (]: Finished running node model.swifthub_analytics.fact_daily_revenue
+[0m19:20:12.021434 [debug] [Thread-2 (]: Began compiling node model.swifthub_analytics.stg_users
+[0m19:20:12.022966 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '134b43cd-db4f-400d-8c64-bbb4334c4869', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAFEE9640>]}
+[0m19:20:12.023568 [debug] [Thread-4 (]: Finished running node model.swifthub_analytics.dim_drivers
+[0m19:20:12.024636 [debug] [Thread-1 (]: Began running node model.swifthub_analytics.fct_transactions
+[0m19:20:12.027327 [debug] [Thread-2 (]: Writing injected SQL for node "model.swifthub_analytics.stg_users"
+[0m19:20:12.028356 [error] [Thread-3 (]: 3 of 9 ERROR creating sql view model main.stg_merchants ........................ [[31mERROR[0m in 0.18s]
+[0m19:20:12.028864 [info ] [Thread-1 (]: 7 of 9 SKIP relation main.fct_transactions ..................................... [[33mSKIP[0m]
+[0m19:20:12.030299 [debug] [Thread-3 (]: Finished running node model.swifthub_analytics.stg_merchants
+[0m19:20:12.030804 [debug] [Thread-1 (]: Finished running node model.swifthub_analytics.fct_transactions
+[0m19:20:12.031855 [debug] [Thread-4 (]: Began running node model.swifthub_analytics.dim_merchants
+[0m19:20:12.032364 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.stg_users (compile): 19:20:12.024636 => 19:20:12.032364
+[0m19:20:12.033057 [info ] [Thread-4 (]: 8 of 9 SKIP relation main.dim_merchants ........................................ [[33mSKIP[0m]
+[0m19:20:12.034115 [debug] [Thread-2 (]: Began executing node model.swifthub_analytics.stg_users
+[0m19:20:12.034115 [debug] [Thread-4 (]: Finished running node model.swifthub_analytics.dim_merchants
+[0m19:20:12.039900 [debug] [Thread-2 (]: Writing runtime sql for node "model.swifthub_analytics.stg_users"
+[0m19:20:12.041954 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:20:12.042482 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_users: BEGIN
+[0m19:20:12.042998 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m19:20:12.059240 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:20:12.059240 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:20:12.060363 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_users"} */
+
+  
+  create view "swifthub"."main"."stg_users__dbt_tmp" as (
+    
+
+WITH raw_users AS (
+    SELECT * FROM read_parquet('../data/production/users.parquet')
+)
+
+SELECT
+    CAST(user_id AS VARCHAR) AS user_id,
+    CAST(name AS VARCHAR) AS name,
+    CAST(gender AS VARCHAR) AS gender,
+    CAST(age AS INTEGER) AS age,
+    CAST(city AS VARCHAR) AS city,
+    CAST(region AS VARCHAR) AS region,
+    CAST(loyalty_tier AS VARCHAR) AS loyalty_tier,
+    CAST(churn_risk_score AS DOUBLE) AS churn_risk_score
+FROM raw_users
+  );
+
+[0m19:20:12.061366 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.stg_users (execute): 19:20:12.034743 => 19:20:12.061366
+[0m19:20:12.061366 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_users: ROLLBACK
+[0m19:20:12.065665 [debug] [Thread-2 (]: Failed to rollback 'model.swifthub_analytics.stg_users'
+[0m19:20:12.066171 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_users: Close
+[0m19:20:12.087936 [debug] [Thread-2 (]: Runtime Error in model stg_users (models\staging\stg_users.sql)
+  IO Error: No files found that match the pattern "../data/production/users.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/users.parquet')
+                            ^
+[0m19:20:12.088459 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '134b43cd-db4f-400d-8c64-bbb4334c4869', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAFDC5A60>]}
+[0m19:20:12.089475 [error] [Thread-2 (]: 5 of 9 ERROR creating sql view model main.stg_users ............................ [[31mERROR[0m in 0.07s]
+[0m19:20:12.090512 [debug] [Thread-2 (]: Finished running node model.swifthub_analytics.stg_users
+[0m19:20:12.091037 [debug] [Thread-1 (]: Began running node model.swifthub_analytics.dim_users
+[0m19:20:12.091556 [info ] [Thread-1 (]: 9 of 9 SKIP relation main.dim_users ............................................ [[33mSKIP[0m]
+[0m19:20:12.092076 [debug] [Thread-1 (]: Finished running node model.swifthub_analytics.dim_users
+[0m19:20:12.093478 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:20:12.094994 [debug] [MainThread]: On master: BEGIN
+[0m19:20:12.095513 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m19:20:12.112860 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:20:12.113911 [debug] [MainThread]: On master: COMMIT
+[0m19:20:12.114419 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:20:12.114419 [debug] [MainThread]: On master: COMMIT
+[0m19:20:12.114419 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:20:12.115424 [debug] [MainThread]: On master: Close
+[0m19:20:12.117011 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:20:12.118630 [debug] [MainThread]: Connection 'create_swifthub_main' was properly closed.
+[0m19:20:12.118630 [debug] [MainThread]: Connection 'list_swifthub_main' was properly closed.
+[0m19:20:12.118630 [debug] [MainThread]: Connection 'model.swifthub_analytics.fact_daily_revenue' was properly closed.
+[0m19:20:12.118630 [debug] [MainThread]: Connection 'model.swifthub_analytics.stg_users' was properly closed.
+[0m19:20:12.118630 [debug] [MainThread]: Connection 'model.swifthub_analytics.stg_merchants' was properly closed.
+[0m19:20:12.118630 [debug] [MainThread]: Connection 'model.swifthub_analytics.stg_transactions' was properly closed.
+[0m19:20:12.118630 [info ] [MainThread]: 
+[0m19:20:12.121318 [info ] [MainThread]: Finished running 4 view models, 5 table models in 0 hours 0 minutes and 0.46 seconds (0.46s).
+[0m19:20:12.122846 [debug] [MainThread]: Command end result
+[0m19:20:12.133469 [info ] [MainThread]: 
+[0m19:20:12.134986 [info ] [MainThread]: [31mCompleted with 5 errors and 0 warnings:[0m
+[0m19:20:12.135504 [info ] [MainThread]: 
+[0m19:20:12.136072 [error] [MainThread]:   Runtime Error in model stg_drivers (models\staging\stg_drivers.sql)
+  IO Error: No files found that match the pattern "../data/production/drivers.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/drivers.parquet')
+                            ^
+[0m19:20:12.136582 [info ] [MainThread]: 
+[0m19:20:12.136582 [error] [MainThread]:   Runtime Error in model stg_transactions (models\staging\stg_transactions.sql)
+  IO Error: No files found that match the pattern "../data/production/transactions.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/transactions.parquet')
+                            ^
+[0m19:20:12.137597 [info ] [MainThread]: 
+[0m19:20:12.138120 [error] [MainThread]:   Runtime Error in model fact_daily_revenue (models\marts\fact_daily_revenue.sql)
+  IO Error: No files found that match the pattern "../data/production/transactions.parquet"
+  
+  LINE 16:     FROM read_parquet('../data/production/transactions.parquet')
+                    ^
+[0m19:20:12.138636 [info ] [MainThread]: 
+[0m19:20:12.139147 [error] [MainThread]:   Runtime Error in model stg_merchants (models\staging\stg_merchants.sql)
+  IO Error: No files found that match the pattern "../data/production/merchants.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/merchants.parquet')
+                            ^
+[0m19:20:12.139147 [info ] [MainThread]: 
+[0m19:20:12.139704 [error] [MainThread]:   Runtime Error in model stg_users (models\staging\stg_users.sql)
+  IO Error: No files found that match the pattern "../data/production/users.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/users.parquet')
+                            ^
+[0m19:20:12.140236 [info ] [MainThread]: 
+[0m19:20:12.140754 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=5 SKIP=4 TOTAL=9
+[0m19:20:12.141787 [debug] [MainThread]: Command `dbt build` failed at 19:20:12.141270 after 1.17 seconds
+[0m19:20:12.142306 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAE3B7B90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAE81AEA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DCAFD83950>]}
+[0m19:20:12.142306 [debug] [MainThread]: Flushing usage events
+[0m19:25:41.733932 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020469425B50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204692849E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020469424710>]}
+
+
+============================== 19:25:41.741092 | 45fcd675-4b25-4534-a7cd-2bd2477e8233 ==============================
+[0m19:25:41.741092 [info ] [MainThread]: Running with dbt=1.7.19
+[0m19:25:41.741607 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': "C:\\Users\\Ade's PC\\OneDrive\\Dokumen\\Git\\super-app-data-projects\\dbt_project\\logs", 'debug': 'False', 'profiles_dir': "C:\\Users\\Ade's PC\\OneDrive\\Dokumen\\Git\\super-app-data-projects\\dbt_project", 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt build --target dev --vars {database_path: ../data/swifthub.duckdb}', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m19:25:42.264571 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '45fcd675-4b25-4534-a7cd-2bd2477e8233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002046947F620>]}
+[0m19:25:42.344469 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '45fcd675-4b25-4534-a7cd-2bd2477e8233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002046A6899D0>]}
+[0m19:25:42.345977 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m19:25:42.360139 [debug] [MainThread]: checksum: 9b54a949eaf25d379a86aa945bb4911cf741480a85642160129cbba0a742166f, vars: {'database_path': '../data/swifthub.duckdb'}, profile: , target: dev, version: 1.7.19
+[0m19:25:42.375941 [info ] [MainThread]: Unable to do partial parsing because config vars, config profile, or config target have changed
+[0m19:25:42.376999 [debug] [MainThread]: previous checksum: 9b54a949eaf25d379a86aa945bb4911cf741480a85642160129cbba0a742166f, current checksum: 7b8f7d4febbfc5f8b47662690941ab7a9f17369633611bd529eca733d14dc95e
+[0m19:25:42.377515 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '45fcd675-4b25-4534-a7cd-2bd2477e8233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002046A8B13A0>]}
+[0m19:25:43.872520 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '45fcd675-4b25-4534-a7cd-2bd2477e8233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002046A80C2F0>]}
+[0m19:25:43.889254 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '45fcd675-4b25-4534-a7cd-2bd2477e8233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002046A8B4F80>]}
+[0m19:25:43.890263 [info ] [MainThread]: Found 9 models, 4 sources, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m19:25:43.892790 [info ] [MainThread]: 
+[0m19:25:43.893861 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m19:25:43.895948 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_swifthub'
+[0m19:25:43.911919 [debug] [ThreadPool]: Using duckdb connection "list_swifthub"
+[0m19:25:43.911919 [debug] [ThreadPool]: On list_swifthub: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "list_swifthub"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"swifthub"'
+    
+  
+  
+[0m19:25:43.912716 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:25:43.940350 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:25:43.941858 [debug] [ThreadPool]: On list_swifthub: Close
+[0m19:25:43.945947 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_swifthub, now create_swifthub_main)
+[0m19:25:43.947452 [debug] [ThreadPool]: Creating schema "database: "swifthub"
+schema: "main"
+"
+[0m19:25:43.957066 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:25:43.957580 [debug] [ThreadPool]: On create_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "create_swifthub_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='swifthub'
+        and type='sqlite'
+    
+  
+[0m19:25:43.957580 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m19:25:43.979788 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:25:43.981793 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:25:43.981793 [debug] [ThreadPool]: On create_swifthub_main: BEGIN
+[0m19:25:43.982793 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:25:43.983811 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:25:43.984817 [debug] [ThreadPool]: On create_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "create_swifthub_main"} */
+
+    
+    
+        create schema if not exists "swifthub"."main"
+    
+[0m19:25:43.985322 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:25:43.987710 [debug] [ThreadPool]: On create_swifthub_main: COMMIT
+[0m19:25:43.987710 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:25:43.987710 [debug] [ThreadPool]: On create_swifthub_main: COMMIT
+[0m19:25:43.989263 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:25:43.989263 [debug] [ThreadPool]: On create_swifthub_main: Close
+[0m19:25:43.995357 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_swifthub_main'
+[0m19:25:44.002239 [debug] [ThreadPool]: Using duckdb connection "list_swifthub_main"
+[0m19:25:44.002239 [debug] [ThreadPool]: On list_swifthub_main: BEGIN
+[0m19:25:44.004298 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:25:44.023741 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:25:44.024741 [debug] [ThreadPool]: Using duckdb connection "list_swifthub_main"
+[0m19:25:44.024741 [debug] [ThreadPool]: On list_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "list_swifthub_main"} */
+select
+      'swifthub' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'swifthub'
+  
+[0m19:25:44.045356 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:25:44.046760 [debug] [ThreadPool]: On list_swifthub_main: ROLLBACK
+[0m19:25:44.051294 [debug] [ThreadPool]: Failed to rollback 'list_swifthub_main'
+[0m19:25:44.051294 [debug] [ThreadPool]: On list_swifthub_main: Close
+[0m19:25:44.055813 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '45fcd675-4b25-4534-a7cd-2bd2477e8233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002046A755580>]}
+[0m19:25:44.056317 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:25:44.056317 [debug] [MainThread]: On master: BEGIN
+[0m19:25:44.057320 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m19:25:44.076966 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:25:44.077844 [debug] [MainThread]: On master: COMMIT
+[0m19:25:44.077844 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:25:44.078652 [debug] [MainThread]: On master: COMMIT
+[0m19:25:44.079711 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:25:44.080337 [debug] [MainThread]: On master: Close
+[0m19:25:44.085270 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m19:25:44.086411 [info ] [MainThread]: 
+[0m19:25:44.092495 [debug] [Thread-1 (]: Began running node model.swifthub_analytics.fact_daily_revenue
+[0m19:25:44.093502 [debug] [Thread-2 (]: Began running node model.swifthub_analytics.stg_drivers
+[0m19:25:44.094506 [debug] [Thread-3 (]: Began running node model.swifthub_analytics.stg_merchants
+[0m19:25:44.095010 [debug] [Thread-4 (]: Began running node model.swifthub_analytics.stg_transactions
+[0m19:25:44.095010 [info ] [Thread-1 (]: 1 of 9 START sql table model main.fact_daily_revenue ........................... [RUN]
+[0m19:25:44.096011 [info ] [Thread-2 (]: 2 of 9 START sql view model main.stg_drivers ................................... [RUN]
+[0m19:25:44.097011 [info ] [Thread-3 (]: 3 of 9 START sql view model main.stg_merchants ................................. [RUN]
+[0m19:25:44.098024 [info ] [Thread-4 (]: 4 of 9 START sql view model main.stg_transactions .............................. [RUN]
+[0m19:25:44.099530 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.swifthub_analytics.fact_daily_revenue'
+[0m19:25:44.101757 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_drivers'
+[0m19:25:44.102829 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_merchants'
+[0m19:25:44.103854 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_transactions'
+[0m19:25:44.104889 [debug] [Thread-1 (]: Began compiling node model.swifthub_analytics.fact_daily_revenue
+[0m19:25:44.105402 [debug] [Thread-2 (]: Began compiling node model.swifthub_analytics.stg_drivers
+[0m19:25:44.105930 [debug] [Thread-3 (]: Began compiling node model.swifthub_analytics.stg_merchants
+[0m19:25:44.106441 [debug] [Thread-4 (]: Began compiling node model.swifthub_analytics.stg_transactions
+[0m19:25:44.117784 [debug] [Thread-1 (]: Writing injected SQL for node "model.swifthub_analytics.fact_daily_revenue"
+[0m19:25:44.121368 [debug] [Thread-2 (]: Writing injected SQL for node "model.swifthub_analytics.stg_drivers"
+[0m19:25:44.125012 [debug] [Thread-3 (]: Writing injected SQL for node "model.swifthub_analytics.stg_merchants"
+[0m19:25:44.128638 [debug] [Thread-4 (]: Writing injected SQL for node "model.swifthub_analytics.stg_transactions"
+[0m19:25:44.130795 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.fact_daily_revenue (compile): 19:25:44.106971 => 19:25:44.130182
+[0m19:25:44.130795 [debug] [Thread-1 (]: Began executing node model.swifthub_analytics.fact_daily_revenue
+[0m19:25:44.158669 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.stg_merchants (compile): 19:25:44.121873 => 19:25:44.158058
+[0m19:25:44.158669 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.stg_transactions (compile): 19:25:44.125012 => 19:25:44.158669
+[0m19:25:44.159674 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.stg_drivers (compile): 19:25:44.118294 => 19:25:44.159674
+[0m19:25:44.185511 [debug] [Thread-2 (]: Began executing node model.swifthub_analytics.stg_drivers
+[0m19:25:44.182483 [debug] [Thread-3 (]: Began executing node model.swifthub_analytics.stg_merchants
+[0m19:25:44.184507 [debug] [Thread-4 (]: Began executing node model.swifthub_analytics.stg_transactions
+[0m19:25:44.181978 [debug] [Thread-1 (]: Writing runtime sql for node "model.swifthub_analytics.fact_daily_revenue"
+[0m19:25:44.212043 [debug] [Thread-2 (]: Writing runtime sql for node "model.swifthub_analytics.stg_drivers"
+[0m19:25:44.217045 [debug] [Thread-3 (]: Writing runtime sql for node "model.swifthub_analytics.stg_merchants"
+[0m19:25:44.225166 [debug] [Thread-4 (]: Writing runtime sql for node "model.swifthub_analytics.stg_transactions"
+[0m19:25:44.227533 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:25:44.227533 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:25:44.228545 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:25:44.230544 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: BEGIN
+[0m19:25:44.230544 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:25:44.232055 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: BEGIN
+[0m19:25:44.232055 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: BEGIN
+[0m19:25:44.233058 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m19:25:44.233561 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: BEGIN
+[0m19:25:44.236224 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m19:25:44.237223 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m19:25:44.238224 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m19:25:44.263175 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:25:44.264681 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:25:44.264681 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:25:44.265694 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:25:44.265694 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:44.266980 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:25:44.268089 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:25:44.271028 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_drivers"} */
+
+  
+  create view "swifthub"."main"."stg_drivers__dbt_tmp" as (
+    
+
+WITH raw_drivers AS (
+    SELECT * FROM read_parquet('../data/production/drivers.parquet')
+)
+
+SELECT
+    CAST(driver_id AS VARCHAR) AS driver_id,
+    CAST(name AS VARCHAR) AS name,
+    CAST(gender AS VARCHAR) AS gender,
+    CAST(age AS INTEGER) AS age,
+    CAST(city AS VARCHAR) AS city,
+    CAST(vehicle_type AS VARCHAR) AS vehicle_type,
+    CAST(rating AS DOUBLE) AS driver_rating
+FROM raw_drivers
+  );
+
+[0m19:25:44.269502 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:25:44.270007 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fact_daily_revenue"} */
+
+  
+    
+    
+
+    create  table
+      "swifthub"."main"."fact_daily_revenue__dbt_tmp"
+  
+    as (
+      
+
+WITH raw_transactions AS (
+    -- DuckDB natively binds exactly to local massive parquet files
+    SELECT *
+    FROM read_parquet('../data/production/transactions.parquet')
+)
+
+SELECT
+    date_trunc('day', CAST(date AS TIMESTAMP)) AS transaction_date,
+    department,
+    service_id,
+    COUNT(transaction_id) as total_tx_volume,
+    SUM(total_amount) as total_gross_revenue,
+    AVG(total_amount) as average_basket_size
+FROM raw_transactions
+GROUP BY 1, 2, 3
+ORDER BY 1 DESC, 5 DESC
+    );
+  
+  
+[0m19:25:44.268497 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_merchants"} */
+
+  
+  create view "swifthub"."main"."stg_merchants__dbt_tmp" as (
+    
+
+WITH raw_merchants AS (
+    SELECT * FROM read_parquet('../data/production/merchants.parquet')
+)
+
+SELECT
+    CAST(merchant_id AS VARCHAR) AS merchant_id,
+    CAST(merchant_name AS VARCHAR) AS merchant_name,
+    CAST(service_type AS VARCHAR) AS service_type,
+    CAST(department AS VARCHAR) AS department,
+    CAST(city AS VARCHAR) AS city,
+    CAST(rating AS DOUBLE) AS merchant_rating
+FROM raw_merchants
+  );
+
+[0m19:25:44.271908 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_transactions"} */
+
+  
+  create view "swifthub"."main"."stg_transactions__dbt_tmp" as (
+    
+
+WITH raw_transactions AS (
+    SELECT * FROM read_parquet('../data/production/transactions.parquet')
+)
+
+SELECT
+    CAST(transaction_id AS VARCHAR) AS transaction_id,
+    CAST(date AS TIMESTAMP) AS transaction_timestamp,
+    CAST(user_id AS VARCHAR) AS user_id,
+    CAST(driver_id AS VARCHAR) AS driver_id,
+    CAST(merchant_id AS VARCHAR) AS merchant_id,
+    CAST(service_id AS VARCHAR) AS service_id,
+    CAST(quantity AS INTEGER) AS quantity,
+    CAST(base_amount AS DOUBLE) AS base_amount,
+    CAST(discounted_amount AS DOUBLE) AS discounted_amount,
+    CAST(total_amount AS DOUBLE) AS total_amount,
+    CAST(payment_method AS VARCHAR) AS payment_method,
+    CAST(department AS VARCHAR) AS department,
+    CAST(city AS VARCHAR) AS city,
+    CAST(region AS VARCHAR) AS region,
+    CAST(promotion_id AS VARCHAR) AS promotion_id
+FROM raw_transactions
+  );
+
+[0m19:25:44.278630 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.stg_drivers (execute): 19:25:44.185511 => 19:25:44.277625
+[0m19:25:44.279135 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.fact_daily_revenue (execute): 19:25:44.131804 => 19:25:44.279135
+[0m19:25:44.281167 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.stg_transactions (execute): 19:25:44.218220 => 19:25:44.280144
+[0m19:25:44.282674 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.stg_merchants (execute): 19:25:44.212043 => 19:25:44.281167
+[0m19:25:44.284781 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: ROLLBACK
+[0m19:25:44.285794 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: ROLLBACK
+[0m19:25:44.286302 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: ROLLBACK
+[0m19:25:44.287308 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: ROLLBACK
+[0m19:25:44.307501 [debug] [Thread-3 (]: Failed to rollback 'model.swifthub_analytics.stg_merchants'
+[0m19:25:44.309088 [debug] [Thread-4 (]: Failed to rollback 'model.swifthub_analytics.stg_transactions'
+[0m19:25:44.310642 [debug] [Thread-2 (]: Failed to rollback 'model.swifthub_analytics.stg_drivers'
+[0m19:25:44.312273 [debug] [Thread-1 (]: Failed to rollback 'model.swifthub_analytics.fact_daily_revenue'
+[0m19:25:44.312795 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: Close
+[0m19:25:44.313910 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: Close
+[0m19:25:44.314415 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: Close
+[0m19:25:44.315705 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: Close
+[0m19:25:44.321944 [debug] [Thread-3 (]: Runtime Error in model stg_merchants (models\staging\stg_merchants.sql)
+  IO Error: No files found that match the pattern "../data/production/merchants.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/merchants.parquet')
+                            ^
+[0m19:25:44.325126 [debug] [Thread-4 (]: Runtime Error in model stg_transactions (models\staging\stg_transactions.sql)
+  IO Error: No files found that match the pattern "../data/production/transactions.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/transactions.parquet')
+                            ^
+[0m19:25:44.325643 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '45fcd675-4b25-4534-a7cd-2bd2477e8233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002046A8B52B0>]}
+[0m19:25:44.326247 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '45fcd675-4b25-4534-a7cd-2bd2477e8233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002046AADB7A0>]}
+[0m19:25:44.329842 [debug] [Thread-2 (]: Runtime Error in model stg_drivers (models\staging\stg_drivers.sql)
+  IO Error: No files found that match the pattern "../data/production/drivers.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/drivers.parquet')
+                            ^
+[0m19:25:44.327287 [error] [Thread-3 (]: 3 of 9 ERROR creating sql view model main.stg_merchants ........................ [[31mERROR[0m in 0.22s]
+[0m19:25:44.331474 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '45fcd675-4b25-4534-a7cd-2bd2477e8233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002046ABA2ED0>]}
+[0m19:25:44.330950 [error] [Thread-4 (]: 4 of 9 ERROR creating sql view model main.stg_transactions ..................... [[31mERROR[0m in 0.22s]
+[0m19:25:44.332747 [debug] [Thread-3 (]: Finished running node model.swifthub_analytics.stg_merchants
+[0m19:25:44.335747 [debug] [Thread-4 (]: Finished running node model.swifthub_analytics.stg_transactions
+[0m19:25:44.337925 [debug] [Thread-1 (]: Runtime Error in model fact_daily_revenue (models\marts\fact_daily_revenue.sql)
+  IO Error: No files found that match the pattern "../data/production/transactions.parquet"
+  
+  LINE 16:     FROM read_parquet('../data/production/transactions.parquet')
+                    ^
+[0m19:25:44.333960 [error] [Thread-2 (]: 2 of 9 ERROR creating sql view model main.stg_drivers .......................... [[31mERROR[0m in 0.23s]
+[0m19:25:44.338753 [debug] [Thread-3 (]: Began running node model.swifthub_analytics.stg_users
+[0m19:25:44.339976 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '45fcd675-4b25-4534-a7cd-2bd2477e8233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002046AB897F0>]}
+[0m19:25:44.340537 [debug] [Thread-4 (]: Began running node model.swifthub_analytics.dim_merchants
+[0m19:25:44.341584 [debug] [Thread-2 (]: Finished running node model.swifthub_analytics.stg_drivers
+[0m19:25:44.342146 [info ] [Thread-3 (]: 5 of 9 START sql view model main.stg_users ..................................... [RUN]
+[0m19:25:44.343201 [error] [Thread-1 (]: 1 of 9 ERROR creating sql table model main.fact_daily_revenue .................. [[31mERROR[0m in 0.24s]
+[0m19:25:44.344776 [debug] [Thread-2 (]: Began running node model.swifthub_analytics.fct_transactions
+[0m19:25:44.344265 [info ] [Thread-4 (]: 6 of 9 SKIP relation main.dim_merchants ........................................ [[33mSKIP[0m]
+[0m19:25:44.346529 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.swifthub_analytics.stg_merchants, now model.swifthub_analytics.stg_users)
+[0m19:25:44.347561 [debug] [Thread-1 (]: Finished running node model.swifthub_analytics.fact_daily_revenue
+[0m19:25:44.348086 [info ] [Thread-2 (]: 7 of 9 SKIP relation main.fct_transactions ..................................... [[33mSKIP[0m]
+[0m19:25:44.349130 [debug] [Thread-4 (]: Finished running node model.swifthub_analytics.dim_merchants
+[0m19:25:44.349686 [debug] [Thread-3 (]: Began compiling node model.swifthub_analytics.stg_users
+[0m19:25:44.351149 [debug] [Thread-1 (]: Began running node model.swifthub_analytics.dim_drivers
+[0m19:25:44.351654 [debug] [Thread-2 (]: Finished running node model.swifthub_analytics.fct_transactions
+[0m19:25:44.355985 [debug] [Thread-3 (]: Writing injected SQL for node "model.swifthub_analytics.stg_users"
+[0m19:25:44.357073 [info ] [Thread-1 (]: 8 of 9 SKIP relation main.dim_drivers .......................................... [[33mSKIP[0m]
+[0m19:25:44.358679 [debug] [Thread-1 (]: Finished running node model.swifthub_analytics.dim_drivers
+[0m19:25:44.361245 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.stg_users (compile): 19:25:44.352288 => 19:25:44.360739
+[0m19:25:44.361758 [debug] [Thread-3 (]: Began executing node model.swifthub_analytics.stg_users
+[0m19:25:44.370680 [debug] [Thread-3 (]: Writing runtime sql for node "model.swifthub_analytics.stg_users"
+[0m19:25:44.372915 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:25:44.373519 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_users: BEGIN
+[0m19:25:44.374043 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m19:25:44.393978 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:25:44.394485 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:25:44.395001 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_users"} */
+
+  
+  create view "swifthub"."main"."stg_users__dbt_tmp" as (
+    
+
+WITH raw_users AS (
+    SELECT * FROM read_parquet('../data/production/users.parquet')
+)
+
+SELECT
+    CAST(user_id AS VARCHAR) AS user_id,
+    CAST(name AS VARCHAR) AS name,
+    CAST(gender AS VARCHAR) AS gender,
+    CAST(age AS INTEGER) AS age,
+    CAST(city AS VARCHAR) AS city,
+    CAST(region AS VARCHAR) AS region,
+    CAST(loyalty_tier AS VARCHAR) AS loyalty_tier,
+    CAST(churn_risk_score AS DOUBLE) AS churn_risk_score
+FROM raw_users
+  );
+
+[0m19:25:44.397024 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.stg_users (execute): 19:25:44.362267 => 19:25:44.397024
+[0m19:25:44.398025 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_users: ROLLBACK
+[0m19:25:44.402195 [debug] [Thread-3 (]: Failed to rollback 'model.swifthub_analytics.stg_users'
+[0m19:25:44.402703 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_users: Close
+[0m19:25:44.408523 [debug] [Thread-3 (]: Runtime Error in model stg_users (models\staging\stg_users.sql)
+  IO Error: No files found that match the pattern "../data/production/users.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/users.parquet')
+                            ^
+[0m19:25:44.409560 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '45fcd675-4b25-4534-a7cd-2bd2477e8233', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002046ABA13A0>]}
+[0m19:25:44.410402 [error] [Thread-3 (]: 5 of 9 ERROR creating sql view model main.stg_users ............................ [[31mERROR[0m in 0.06s]
+[0m19:25:44.411846 [debug] [Thread-3 (]: Finished running node model.swifthub_analytics.stg_users
+[0m19:25:44.412891 [debug] [Thread-4 (]: Began running node model.swifthub_analytics.dim_users
+[0m19:25:44.413403 [info ] [Thread-4 (]: 9 of 9 SKIP relation main.dim_users ............................................ [[33mSKIP[0m]
+[0m19:25:44.414318 [debug] [Thread-4 (]: Finished running node model.swifthub_analytics.dim_users
+[0m19:25:44.416592 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:25:44.416993 [debug] [MainThread]: On master: BEGIN
+[0m19:25:44.417721 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m19:25:44.439596 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:25:44.440109 [debug] [MainThread]: On master: COMMIT
+[0m19:25:44.440109 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:25:44.440668 [debug] [MainThread]: On master: COMMIT
+[0m19:25:44.441686 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:25:44.442239 [debug] [MainThread]: On master: Close
+[0m19:25:44.445345 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:25:44.445866 [debug] [MainThread]: Connection 'create_swifthub_main' was properly closed.
+[0m19:25:44.446220 [debug] [MainThread]: Connection 'list_swifthub_main' was properly closed.
+[0m19:25:44.446724 [debug] [MainThread]: Connection 'model.swifthub_analytics.fact_daily_revenue' was properly closed.
+[0m19:25:44.446724 [debug] [MainThread]: Connection 'model.swifthub_analytics.stg_drivers' was properly closed.
+[0m19:25:44.447250 [debug] [MainThread]: Connection 'model.swifthub_analytics.stg_users' was properly closed.
+[0m19:25:44.447826 [debug] [MainThread]: Connection 'model.swifthub_analytics.stg_transactions' was properly closed.
+[0m19:25:44.448357 [info ] [MainThread]: 
+[0m19:25:44.448865 [info ] [MainThread]: Finished running 4 view models, 5 table models in 0 hours 0 minutes and 0.56 seconds (0.56s).
+[0m19:25:44.452029 [debug] [MainThread]: Command end result
+[0m19:25:44.464578 [info ] [MainThread]: 
+[0m19:25:44.465085 [info ] [MainThread]: [31mCompleted with 5 errors and 0 warnings:[0m
+[0m19:25:44.466090 [info ] [MainThread]: 
+[0m19:25:44.466090 [error] [MainThread]:   Runtime Error in model stg_merchants (models\staging\stg_merchants.sql)
+  IO Error: No files found that match the pattern "../data/production/merchants.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/merchants.parquet')
+                            ^
+[0m19:25:44.467597 [info ] [MainThread]: 
+[0m19:25:44.469393 [error] [MainThread]:   Runtime Error in model stg_transactions (models\staging\stg_transactions.sql)
+  IO Error: No files found that match the pattern "../data/production/transactions.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/transactions.parquet')
+                            ^
+[0m19:25:44.471010 [info ] [MainThread]: 
+[0m19:25:44.471525 [error] [MainThread]:   Runtime Error in model stg_drivers (models\staging\stg_drivers.sql)
+  IO Error: No files found that match the pattern "../data/production/drivers.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/drivers.parquet')
+                            ^
+[0m19:25:44.471940 [info ] [MainThread]: 
+[0m19:25:44.472947 [error] [MainThread]:   Runtime Error in model fact_daily_revenue (models\marts\fact_daily_revenue.sql)
+  IO Error: No files found that match the pattern "../data/production/transactions.parquet"
+  
+  LINE 16:     FROM read_parquet('../data/production/transactions.parquet')
+                    ^
+[0m19:25:44.474965 [info ] [MainThread]: 
+[0m19:25:44.476979 [error] [MainThread]:   Runtime Error in model stg_users (models\staging\stg_users.sql)
+  IO Error: No files found that match the pattern "../data/production/users.parquet"
+  
+  LINE 8:     SELECT * FROM read_parquet('../data/production/users.parquet')
+                            ^
+[0m19:25:44.479494 [info ] [MainThread]: 
+[0m19:25:44.480494 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=5 SKIP=4 TOTAL=9
+[0m19:25:44.483001 [debug] [MainThread]: Command `dbt build` failed at 19:25:44.482494 after 2.92 seconds
+[0m19:25:44.484610 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204693078F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000204692849E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002046AC4D820>]}
+[0m19:25:44.486131 [debug] [MainThread]: Flushing usage events
+[0m19:25:53.646102 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCB8A4770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCB8A4920>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCB8A5D00>]}
+
+
+============================== 19:25:53.652194 | 913e2ea8-d578-418d-a14e-d5509750467a ==============================
+[0m19:25:53.652194 [info ] [MainThread]: Running with dbt=1.7.19
+[0m19:25:53.653249 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': "C:\\Users\\Ade's PC\\OneDrive\\Dokumen\\Git\\super-app-data-projects\\dbt_project\\logs", 'version_check': 'True', 'profiles_dir': "C:\\Users\\Ade's PC\\OneDrive\\Dokumen\\Git\\super-app-data-projects\\dbt_project", 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt run --target dev', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m19:25:54.080671 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCA6A3320>]}
+[0m19:25:54.164879 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCB8D02F0>]}
+[0m19:25:54.166388 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m19:25:54.177578 [debug] [MainThread]: checksum: 7b8f7d4febbfc5f8b47662690941ab7a9f17369633611bd529eca733d14dc95e, vars: {}, profile: , target: dev, version: 1.7.19
+[0m19:25:54.193212 [info ] [MainThread]: Unable to do partial parsing because config vars, config profile, or config target have changed
+[0m19:25:54.194277 [debug] [MainThread]: previous checksum: 7b8f7d4febbfc5f8b47662690941ab7a9f17369633611bd529eca733d14dc95e, current checksum: 9b54a949eaf25d379a86aa945bb4911cf741480a85642160129cbba0a742166f
+[0m19:25:54.194783 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCCC7C9B0>]}
+[0m19:25:56.129625 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCCC678C0>]}
+[0m19:25:56.151635 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCB925C40>]}
+[0m19:25:56.152227 [info ] [MainThread]: Found 9 models, 4 sources, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m19:25:56.153241 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCCD5C680>]}
+[0m19:25:56.158768 [info ] [MainThread]: 
+[0m19:25:56.160810 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m19:25:56.163326 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_swifthub'
+[0m19:25:56.179573 [debug] [ThreadPool]: Using duckdb connection "list_swifthub"
+[0m19:25:56.180391 [debug] [ThreadPool]: On list_swifthub: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "list_swifthub"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"swifthub"'
+    
+  
+  
+[0m19:25:56.180391 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:25:56.224328 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:25:56.226143 [debug] [ThreadPool]: On list_swifthub: Close
+[0m19:25:56.232295 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_swifthub, now create_swifthub_main)
+[0m19:25:56.233806 [debug] [ThreadPool]: Creating schema "database: "swifthub"
+schema: "main"
+"
+[0m19:25:56.244639 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:25:56.244639 [debug] [ThreadPool]: On create_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "create_swifthub_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='swifthub'
+        and type='sqlite'
+    
+  
+[0m19:25:56.245272 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m19:25:56.275265 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:25:56.277266 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:25:56.277773 [debug] [ThreadPool]: On create_swifthub_main: BEGIN
+[0m19:25:56.278777 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:25:56.279283 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:25:56.279283 [debug] [ThreadPool]: On create_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "create_swifthub_main"} */
+
+    
+    
+        create schema if not exists "swifthub"."main"
+    
+[0m19:25:56.280792 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:25:56.281820 [debug] [ThreadPool]: On create_swifthub_main: COMMIT
+[0m19:25:56.282819 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:25:56.283324 [debug] [ThreadPool]: On create_swifthub_main: COMMIT
+[0m19:25:56.284833 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:25:56.284833 [debug] [ThreadPool]: On create_swifthub_main: Close
+[0m19:25:56.292371 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_swifthub_main'
+[0m19:25:56.301113 [debug] [ThreadPool]: Using duckdb connection "list_swifthub_main"
+[0m19:25:56.301980 [debug] [ThreadPool]: On list_swifthub_main: BEGIN
+[0m19:25:56.302989 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:25:56.324913 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:25:56.325914 [debug] [ThreadPool]: Using duckdb connection "list_swifthub_main"
+[0m19:25:56.325914 [debug] [ThreadPool]: On list_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "list_swifthub_main"} */
+select
+      'swifthub' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'swifthub'
+  
+[0m19:25:56.351544 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:25:56.353055 [debug] [ThreadPool]: On list_swifthub_main: ROLLBACK
+[0m19:25:56.356077 [debug] [ThreadPool]: Failed to rollback 'list_swifthub_main'
+[0m19:25:56.356077 [debug] [ThreadPool]: On list_swifthub_main: Close
+[0m19:25:56.361322 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCCA4E630>]}
+[0m19:25:56.361322 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:25:56.362337 [debug] [MainThread]: On master: BEGIN
+[0m19:25:56.362337 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m19:25:56.387500 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:25:56.388496 [debug] [MainThread]: On master: COMMIT
+[0m19:25:56.388496 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:25:56.390007 [debug] [MainThread]: On master: COMMIT
+[0m19:25:56.391532 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:25:56.391532 [debug] [MainThread]: On master: Close
+[0m19:25:56.396078 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m19:25:56.396078 [info ] [MainThread]: 
+[0m19:25:56.403686 [debug] [Thread-1 (]: Began running node model.swifthub_analytics.fact_daily_revenue
+[0m19:25:56.404200 [debug] [Thread-2 (]: Began running node model.swifthub_analytics.stg_drivers
+[0m19:25:56.405147 [debug] [Thread-3 (]: Began running node model.swifthub_analytics.stg_merchants
+[0m19:25:56.406167 [debug] [Thread-4 (]: Began running node model.swifthub_analytics.stg_transactions
+[0m19:25:56.405653 [info ] [Thread-1 (]: 1 of 9 START sql table model main.fact_daily_revenue ........................... [RUN]
+[0m19:25:56.406731 [info ] [Thread-2 (]: 2 of 9 START sql view model main.stg_drivers ................................... [RUN]
+[0m19:25:56.408245 [info ] [Thread-3 (]: 3 of 9 START sql view model main.stg_merchants ................................. [RUN]
+[0m19:25:56.410034 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.swifthub_analytics.fact_daily_revenue'
+[0m19:25:56.408954 [info ] [Thread-4 (]: 4 of 9 START sql view model main.stg_transactions .............................. [RUN]
+[0m19:25:56.411545 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_drivers'
+[0m19:25:56.412850 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_merchants'
+[0m19:25:56.413453 [debug] [Thread-1 (]: Began compiling node model.swifthub_analytics.fact_daily_revenue
+[0m19:25:56.415030 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_transactions'
+[0m19:25:56.415551 [debug] [Thread-2 (]: Began compiling node model.swifthub_analytics.stg_drivers
+[0m19:25:56.416065 [debug] [Thread-3 (]: Began compiling node model.swifthub_analytics.stg_merchants
+[0m19:25:56.427718 [debug] [Thread-1 (]: Writing injected SQL for node "model.swifthub_analytics.fact_daily_revenue"
+[0m19:25:56.428761 [debug] [Thread-4 (]: Began compiling node model.swifthub_analytics.stg_transactions
+[0m19:25:56.433133 [debug] [Thread-2 (]: Writing injected SQL for node "model.swifthub_analytics.stg_drivers"
+[0m19:25:56.445127 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.fact_daily_revenue (compile): 19:25:56.416598 => 19:25:56.445127
+[0m19:25:56.443734 [debug] [Thread-4 (]: Writing injected SQL for node "model.swifthub_analytics.stg_transactions"
+[0m19:25:56.437815 [debug] [Thread-3 (]: Writing injected SQL for node "model.swifthub_analytics.stg_merchants"
+[0m19:25:56.449565 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.stg_transactions (compile): 19:25:56.438814 => 19:25:56.448050
+[0m19:25:56.447540 [debug] [Thread-1 (]: Began executing node model.swifthub_analytics.fact_daily_revenue
+[0m19:25:56.446637 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.stg_drivers (compile): 19:25:56.428761 => 19:25:56.446637
+[0m19:25:56.469707 [debug] [Thread-2 (]: Began executing node model.swifthub_analytics.stg_drivers
+[0m19:25:56.453493 [debug] [Thread-4 (]: Began executing node model.swifthub_analytics.stg_transactions
+[0m19:25:56.450297 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.stg_merchants (compile): 19:25:56.434217 => 19:25:56.449565
+[0m19:25:56.563687 [debug] [Thread-2 (]: Writing runtime sql for node "model.swifthub_analytics.stg_drivers"
+[0m19:25:56.570210 [debug] [Thread-1 (]: Writing runtime sql for node "model.swifthub_analytics.fact_daily_revenue"
+[0m19:25:56.573054 [debug] [Thread-4 (]: Writing runtime sql for node "model.swifthub_analytics.stg_transactions"
+[0m19:25:56.573532 [debug] [Thread-3 (]: Began executing node model.swifthub_analytics.stg_merchants
+[0m19:25:56.576537 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:25:56.588100 [debug] [Thread-3 (]: Writing runtime sql for node "model.swifthub_analytics.stg_merchants"
+[0m19:25:56.588100 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: BEGIN
+[0m19:25:56.589099 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:25:56.590609 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: BEGIN
+[0m19:25:56.591615 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m19:25:56.593280 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:25:56.590100 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m19:25:56.594295 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: BEGIN
+[0m19:25:56.595293 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m19:25:56.591615 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:25:56.596804 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: BEGIN
+[0m19:25:56.596804 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m19:25:56.619639 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.619639 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.622821 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:25:56.622821 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_drivers"} */
+
+  
+  create view "swifthub"."main"."stg_drivers__dbt_tmp" as (
+    
+
+WITH raw_drivers AS (
+    SELECT * FROM read_parquet('../data/production/drivers.parquet')
+)
+
+SELECT
+    CAST(driver_id AS VARCHAR) AS driver_id,
+    CAST(name AS VARCHAR) AS name,
+    CAST(gender AS VARCHAR) AS gender,
+    CAST(age AS INTEGER) AS age,
+    CAST(city AS VARCHAR) AS city,
+    CAST(vehicle_type AS VARCHAR) AS vehicle_type,
+    CAST(rating AS DOUBLE) AS driver_rating
+FROM raw_drivers
+  );
+
+[0m19:25:56.622300 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.624229 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:25:56.620806 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:25:56.621795 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.625145 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_merchants"} */
+
+  
+  create view "swifthub"."main"."stg_merchants__dbt_tmp" as (
+    
+
+WITH raw_merchants AS (
+    SELECT * FROM read_parquet('../data/production/merchants.parquet')
+)
+
+SELECT
+    CAST(merchant_id AS VARCHAR) AS merchant_id,
+    CAST(merchant_name AS VARCHAR) AS merchant_name,
+    CAST(service_type AS VARCHAR) AS service_type,
+    CAST(department AS VARCHAR) AS department,
+    CAST(city AS VARCHAR) AS city,
+    CAST(rating AS DOUBLE) AS merchant_rating
+FROM raw_merchants
+  );
+
+[0m19:25:56.626259 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fact_daily_revenue"} */
+
+  
+    
+    
+
+    create  table
+      "swifthub"."main"."fact_daily_revenue__dbt_tmp"
+  
+    as (
+      
+
+WITH raw_transactions AS (
+    -- DuckDB natively binds exactly to local massive parquet files
+    SELECT *
+    FROM read_parquet('../data/production/transactions.parquet')
+)
+
+SELECT
+    date_trunc('day', CAST(date AS TIMESTAMP)) AS transaction_date,
+    department,
+    service_id,
+    COUNT(transaction_id) as total_tx_volume,
+    SUM(total_amount) as total_gross_revenue,
+    AVG(total_amount) as average_basket_size
+FROM raw_transactions
+GROUP BY 1, 2, 3
+ORDER BY 1 DESC, 5 DESC
+    );
+  
+  
+[0m19:25:56.626259 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:25:56.628222 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_transactions"} */
+
+  
+  create view "swifthub"."main"."stg_transactions__dbt_tmp" as (
+    
+
+WITH raw_transactions AS (
+    SELECT * FROM read_parquet('../data/production/transactions.parquet')
+)
+
+SELECT
+    CAST(transaction_id AS VARCHAR) AS transaction_id,
+    CAST(date AS TIMESTAMP) AS transaction_timestamp,
+    CAST(user_id AS VARCHAR) AS user_id,
+    CAST(driver_id AS VARCHAR) AS driver_id,
+    CAST(merchant_id AS VARCHAR) AS merchant_id,
+    CAST(service_id AS VARCHAR) AS service_id,
+    CAST(quantity AS INTEGER) AS quantity,
+    CAST(base_amount AS DOUBLE) AS base_amount,
+    CAST(discounted_amount AS DOUBLE) AS discounted_amount,
+    CAST(total_amount AS DOUBLE) AS total_amount,
+    CAST(payment_method AS VARCHAR) AS payment_method,
+    CAST(department AS VARCHAR) AS department,
+    CAST(city AS VARCHAR) AS city,
+    CAST(region AS VARCHAR) AS region,
+    CAST(promotion_id AS VARCHAR) AS promotion_id
+FROM raw_transactions
+  );
+
+[0m19:25:56.638442 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.649717 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:25:56.650764 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.650764 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.652147 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_drivers"} */
+alter view "swifthub"."main"."stg_drivers__dbt_tmp" rename to "stg_drivers"
+[0m19:25:56.657083 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:25:56.666650 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:25:56.669687 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_merchants"} */
+alter view "swifthub"."main"."stg_merchants__dbt_tmp" rename to "stg_merchants"
+[0m19:25:56.670193 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_transactions"} */
+alter view "swifthub"."main"."stg_transactions__dbt_tmp" rename to "stg_transactions"
+[0m19:25:56.670709 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.686058 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.686058 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.698160 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: COMMIT
+[0m19:25:56.699172 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.701190 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: COMMIT
+[0m19:25:56.705860 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:25:56.707376 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:25:56.709404 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: COMMIT
+[0m19:25:56.711035 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:25:56.711552 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fact_daily_revenue"} */
+alter table "swifthub"."main"."fact_daily_revenue__dbt_tmp" rename to "fact_daily_revenue"
+[0m19:25:56.711552 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: COMMIT
+[0m19:25:56.712571 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:25:56.713569 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: COMMIT
+[0m19:25:56.715570 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: COMMIT
+[0m19:25:56.715570 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.725436 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: COMMIT
+[0m19:25:56.726953 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.726953 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.728467 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.728467 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:25:56.736560 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:25:56.742094 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:25:56.746286 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:25:56.746286 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: COMMIT
+[0m19:25:56.747286 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_transactions"} */
+drop view if exists "swifthub"."main"."stg_transactions__dbt_backup" cascade
+[0m19:25:56.748289 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_drivers"} */
+drop view if exists "swifthub"."main"."stg_drivers__dbt_backup" cascade
+[0m19:25:56.749289 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_merchants"} */
+drop view if exists "swifthub"."main"."stg_merchants__dbt_backup" cascade
+[0m19:25:56.752303 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.754318 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.755833 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.759413 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.stg_transactions (execute): 19:25:56.514625 => 19:25:56.757398
+[0m19:25:56.759919 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.762956 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:25:56.766480 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.stg_drivers (execute): 19:25:56.469707 => 19:25:56.765481
+[0m19:25:56.767991 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: Close
+[0m19:25:56.771523 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.stg_merchants (execute): 19:25:56.576537 => 19:25:56.770018
+[0m19:25:56.774564 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: Close
+[0m19:25:56.772051 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: Close
+[0m19:25:56.773558 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCCD8AF60>]}
+[0m19:25:56.772051 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fact_daily_revenue"} */
+drop table if exists "swifthub"."main"."fact_daily_revenue__dbt_backup" cascade
+[0m19:25:56.775580 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCCF50FB0>]}
+[0m19:25:56.780458 [info ] [Thread-3 (]: 3 of 9 OK created sql view model main.stg_merchants ............................ [[32mOK[0m in 0.36s]
+[0m19:25:56.778447 [info ] [Thread-4 (]: 4 of 9 OK created sql view model main.stg_transactions ......................... [[32mOK[0m in 0.36s]
+[0m19:25:56.780458 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.777607 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCCD0A930>]}
+[0m19:25:56.781459 [debug] [Thread-3 (]: Finished running node model.swifthub_analytics.stg_merchants
+[0m19:25:56.782457 [debug] [Thread-4 (]: Finished running node model.swifthub_analytics.stg_transactions
+[0m19:25:56.786498 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.fact_daily_revenue (execute): 19:25:56.454070 => 19:25:56.785483
+[0m19:25:56.787499 [info ] [Thread-2 (]: 2 of 9 OK created sql view model main.stg_drivers .............................. [[32mOK[0m in 0.37s]
+[0m19:25:56.787499 [debug] [Thread-3 (]: Began running node model.swifthub_analytics.stg_users
+[0m19:25:56.789522 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: Close
+[0m19:25:56.790038 [debug] [Thread-4 (]: Began running node model.swifthub_analytics.dim_merchants
+[0m19:25:56.790622 [debug] [Thread-2 (]: Finished running node model.swifthub_analytics.stg_drivers
+[0m19:25:56.790622 [info ] [Thread-3 (]: 5 of 9 START sql view model main.stg_users ..................................... [RUN]
+[0m19:25:56.792135 [info ] [Thread-4 (]: 6 of 9 START sql table model main.dim_merchants ................................ [RUN]
+[0m19:25:56.793697 [debug] [Thread-2 (]: Began running node model.swifthub_analytics.fct_transactions
+[0m19:25:56.794718 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.swifthub_analytics.stg_merchants, now model.swifthub_analytics.stg_users)
+[0m19:25:56.796997 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.swifthub_analytics.stg_transactions, now model.swifthub_analytics.dim_merchants)
+[0m19:25:56.799516 [debug] [Thread-4 (]: Began compiling node model.swifthub_analytics.dim_merchants
+[0m19:25:56.798511 [info ] [Thread-2 (]: 7 of 9 START sql table model main.fct_transactions ............................. [RUN]
+[0m19:25:56.798511 [debug] [Thread-3 (]: Began compiling node model.swifthub_analytics.stg_users
+[0m19:25:56.806210 [debug] [Thread-4 (]: Writing injected SQL for node "model.swifthub_analytics.dim_merchants"
+[0m19:25:56.807721 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.swifthub_analytics.stg_drivers, now model.swifthub_analytics.fct_transactions)
+[0m19:25:56.813165 [debug] [Thread-2 (]: Began compiling node model.swifthub_analytics.fct_transactions
+[0m19:25:56.812153 [debug] [Thread-3 (]: Writing injected SQL for node "model.swifthub_analytics.stg_users"
+[0m19:25:56.822287 [debug] [Thread-2 (]: Writing injected SQL for node "model.swifthub_analytics.fct_transactions"
+[0m19:25:56.824336 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.dim_merchants (compile): 19:25:56.800023 => 19:25:56.823311
+[0m19:25:56.825337 [debug] [Thread-4 (]: Began executing node model.swifthub_analytics.dim_merchants
+[0m19:25:56.827778 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCCE63AA0>]}
+[0m19:25:56.828793 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.stg_users (compile): 19:25:56.808320 => 19:25:56.827778
+[0m19:25:56.836644 [debug] [Thread-4 (]: Writing runtime sql for node "model.swifthub_analytics.dim_merchants"
+[0m19:25:56.838255 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.fct_transactions (compile): 19:25:56.813684 => 19:25:56.837692
+[0m19:25:56.839272 [info ] [Thread-1 (]: 1 of 9 OK created sql table model main.fact_daily_revenue ...................... [[32mOK[0m in 0.42s]
+[0m19:25:56.840679 [debug] [Thread-3 (]: Began executing node model.swifthub_analytics.stg_users
+[0m19:25:56.841182 [debug] [Thread-2 (]: Began executing node model.swifthub_analytics.fct_transactions
+[0m19:25:56.841694 [debug] [Thread-1 (]: Finished running node model.swifthub_analytics.fact_daily_revenue
+[0m19:25:56.848300 [debug] [Thread-3 (]: Writing runtime sql for node "model.swifthub_analytics.stg_users"
+[0m19:25:56.856312 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.dim_merchants"
+[0m19:25:56.860172 [debug] [Thread-2 (]: Writing runtime sql for node "model.swifthub_analytics.fct_transactions"
+[0m19:25:56.861195 [debug] [Thread-1 (]: Began running node model.swifthub_analytics.dim_drivers
+[0m19:25:56.862288 [debug] [Thread-4 (]: On model.swifthub_analytics.dim_merchants: BEGIN
+[0m19:25:56.863825 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m19:25:56.862813 [info ] [Thread-1 (]: 8 of 9 START sql table model main.dim_drivers .................................. [RUN]
+[0m19:25:56.865858 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.swifthub_analytics.fact_daily_revenue, now model.swifthub_analytics.dim_drivers)
+[0m19:25:56.864846 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.fct_transactions"
+[0m19:25:56.866859 [debug] [Thread-1 (]: Began compiling node model.swifthub_analytics.dim_drivers
+[0m19:25:56.872687 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:25:56.873597 [debug] [Thread-2 (]: On model.swifthub_analytics.fct_transactions: BEGIN
+[0m19:25:56.879035 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m19:25:56.877149 [debug] [Thread-1 (]: Writing injected SQL for node "model.swifthub_analytics.dim_drivers"
+[0m19:25:56.878657 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_users: BEGIN
+[0m19:25:56.879936 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m19:25:56.881457 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.dim_drivers (compile): 19:25:56.873597 => 19:25:56.880442
+[0m19:25:56.884523 [debug] [Thread-1 (]: Began executing node model.swifthub_analytics.dim_drivers
+[0m19:25:56.893743 [debug] [Thread-1 (]: Writing runtime sql for node "model.swifthub_analytics.dim_drivers"
+[0m19:25:56.896024 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.dim_drivers"
+[0m19:25:56.897035 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: BEGIN
+[0m19:25:56.897035 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m19:25:56.913041 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.913550 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.914074 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.914677 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.fct_transactions"
+[0m19:25:56.915188 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.915703 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.dim_merchants"
+[0m19:25:56.916234 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:25:56.919820 [debug] [Thread-2 (]: On model.swifthub_analytics.fct_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fct_transactions"} */
+
+  
+    
+    
+
+    create  table
+      "swifthub"."main"."fct_transactions__dbt_tmp"
+  
+    as (
+      
+
+SELECT
+    *
+FROM "swifthub"."main"."stg_transactions"
+    );
+  
+  
+[0m19:25:56.920829 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.dim_drivers"
+[0m19:25:56.922007 [debug] [Thread-4 (]: On model.swifthub_analytics.dim_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_merchants"} */
+
+  
+    
+    
+
+    create  table
+      "swifthub"."main"."dim_merchants__dbt_tmp"
+  
+    as (
+      
+
+SELECT
+    *
+FROM "swifthub"."main"."stg_merchants"
+    );
+  
+  
+[0m19:25:56.922007 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_users"} */
+
+  
+  create view "swifthub"."main"."stg_users__dbt_tmp" as (
+    
+
+WITH raw_users AS (
+    SELECT * FROM read_parquet('../data/production/users.parquet')
+)
+
+SELECT
+    CAST(user_id AS VARCHAR) AS user_id,
+    CAST(name AS VARCHAR) AS name,
+    CAST(gender AS VARCHAR) AS gender,
+    CAST(age AS INTEGER) AS age,
+    CAST(city AS VARCHAR) AS city,
+    CAST(region AS VARCHAR) AS region,
+    CAST(loyalty_tier AS VARCHAR) AS loyalty_tier,
+    CAST(churn_risk_score AS DOUBLE) AS churn_risk_score
+FROM raw_users
+  );
+
+[0m19:25:56.923522 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_drivers"} */
+
+  
+    
+    
+
+    create  table
+      "swifthub"."main"."dim_drivers__dbt_tmp"
+  
+    as (
+      
+
+SELECT
+    *
+FROM "swifthub"."main"."stg_drivers"
+    );
+  
+  
+[0m19:25:56.928199 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.951470 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.dim_merchants"
+[0m19:25:56.952874 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.954387 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.955444 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.956445 [debug] [Thread-4 (]: On model.swifthub_analytics.dim_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_merchants"} */
+alter table "swifthub"."main"."dim_merchants__dbt_tmp" rename to "dim_merchants"
+[0m19:25:56.971133 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:25:56.980842 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.fct_transactions"
+[0m19:25:56.992611 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.dim_drivers"
+[0m19:25:56.994131 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_users"} */
+alter view "swifthub"."main"."stg_users__dbt_tmp" rename to "stg_users"
+[0m19:25:56.995646 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:56.996154 [debug] [Thread-2 (]: On model.swifthub_analytics.fct_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fct_transactions"} */
+alter table "swifthub"."main"."fct_transactions__dbt_tmp" rename to "fct_transactions"
+[0m19:25:56.996937 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_drivers"} */
+alter table "swifthub"."main"."dim_drivers__dbt_tmp" rename to "dim_drivers"
+[0m19:25:56.999608 [debug] [Thread-4 (]: On model.swifthub_analytics.dim_merchants: COMMIT
+[0m19:25:57.001198 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.005912 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.dim_merchants"
+[0m19:25:57.006419 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.007423 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.009466 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_users: COMMIT
+[0m19:25:57.017720 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:25:57.014003 [debug] [Thread-2 (]: On model.swifthub_analytics.fct_transactions: COMMIT
+[0m19:25:57.017210 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: COMMIT
+[0m19:25:57.018732 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_users: COMMIT
+[0m19:25:57.010920 [debug] [Thread-4 (]: On model.swifthub_analytics.dim_merchants: COMMIT
+[0m19:25:57.019732 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.fct_transactions"
+[0m19:25:57.020242 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.dim_drivers"
+[0m19:25:57.022399 [debug] [Thread-2 (]: On model.swifthub_analytics.fct_transactions: COMMIT
+[0m19:25:57.023049 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: COMMIT
+[0m19:25:57.024573 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.030819 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.dim_merchants"
+[0m19:25:57.031772 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.032277 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.032277 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.035313 [debug] [Thread-4 (]: On model.swifthub_analytics.dim_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_merchants"} */
+drop table if exists "swifthub"."main"."dim_merchants__dbt_backup" cascade
+[0m19:25:57.042286 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:25:57.045984 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.fct_transactions"
+[0m19:25:57.056243 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.dim_drivers"
+[0m19:25:57.058842 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_drivers"} */
+drop table if exists "swifthub"."main"."dim_drivers__dbt_backup" cascade
+[0m19:25:57.057828 [debug] [Thread-2 (]: On model.swifthub_analytics.fct_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fct_transactions"} */
+drop table if exists "swifthub"."main"."fct_transactions__dbt_backup" cascade
+[0m19:25:57.057828 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.056243 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_users"} */
+drop view if exists "swifthub"."main"."stg_users__dbt_backup" cascade
+[0m19:25:57.060351 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.059845 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.064015 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.dim_merchants (execute): 19:25:56.828793 => 19:25:57.063013
+[0m19:25:57.066548 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.fct_transactions (execute): 19:25:56.848814 => 19:25:57.065906
+[0m19:25:57.067593 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.072438 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.dim_drivers (execute): 19:25:56.885253 => 19:25:57.072438
+[0m19:25:57.073442 [debug] [Thread-4 (]: On model.swifthub_analytics.dim_merchants: Close
+[0m19:25:57.073947 [debug] [Thread-2 (]: On model.swifthub_analytics.fct_transactions: Close
+[0m19:25:57.075959 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.stg_users (execute): 19:25:56.842706 => 19:25:57.075959
+[0m19:25:57.076507 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: Close
+[0m19:25:57.078014 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCCB1B440>]}
+[0m19:25:57.081298 [info ] [Thread-4 (]: 6 of 9 OK created sql table model main.dim_merchants ........................... [[32mOK[0m in 0.28s]
+[0m19:25:57.079012 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_users: Close
+[0m19:25:57.080908 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCCF1A1E0>]}
+[0m19:25:57.079012 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCE024590>]}
+[0m19:25:57.082808 [debug] [Thread-4 (]: Finished running node model.swifthub_analytics.dim_merchants
+[0m19:25:57.088508 [info ] [Thread-1 (]: 8 of 9 OK created sql table model main.dim_drivers ............................. [[32mOK[0m in 0.22s]
+[0m19:25:57.091032 [debug] [Thread-1 (]: Finished running node model.swifthub_analytics.dim_drivers
+[0m19:25:57.090016 [info ] [Thread-2 (]: 7 of 9 OK created sql table model main.fct_transactions ........................ [[32mOK[0m in 0.27s]
+[0m19:25:57.093547 [debug] [Thread-2 (]: Finished running node model.swifthub_analytics.fct_transactions
+[0m19:25:57.142274 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCCE6FE30>]}
+[0m19:25:57.142778 [info ] [Thread-3 (]: 5 of 9 OK created sql view model main.stg_users ................................ [[32mOK[0m in 0.35s]
+[0m19:25:57.144299 [debug] [Thread-3 (]: Finished running node model.swifthub_analytics.stg_users
+[0m19:25:57.145106 [debug] [Thread-4 (]: Began running node model.swifthub_analytics.dim_users
+[0m19:25:57.145637 [info ] [Thread-4 (]: 9 of 9 START sql table model main.dim_users .................................... [RUN]
+[0m19:25:57.147341 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.swifthub_analytics.dim_merchants, now model.swifthub_analytics.dim_users)
+[0m19:25:57.147900 [debug] [Thread-4 (]: Began compiling node model.swifthub_analytics.dim_users
+[0m19:25:57.152143 [debug] [Thread-4 (]: Writing injected SQL for node "model.swifthub_analytics.dim_users"
+[0m19:25:57.154247 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.dim_users (compile): 19:25:57.148429 => 19:25:57.153239
+[0m19:25:57.155379 [debug] [Thread-4 (]: Began executing node model.swifthub_analytics.dim_users
+[0m19:25:57.163726 [debug] [Thread-4 (]: Writing runtime sql for node "model.swifthub_analytics.dim_users"
+[0m19:25:57.165870 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.dim_users"
+[0m19:25:57.166491 [debug] [Thread-4 (]: On model.swifthub_analytics.dim_users: BEGIN
+[0m19:25:57.167494 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m19:25:57.196492 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.196492 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.dim_users"
+[0m19:25:57.198005 [debug] [Thread-4 (]: On model.swifthub_analytics.dim_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_users"} */
+
+  
+    
+    
+
+    create  table
+      "swifthub"."main"."dim_users__dbt_tmp"
+  
+    as (
+      
+
+SELECT
+    *
+FROM "swifthub"."main"."stg_users"
+    );
+  
+  
+[0m19:25:57.202563 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.206625 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.dim_users"
+[0m19:25:57.206625 [debug] [Thread-4 (]: On model.swifthub_analytics.dim_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_users"} */
+alter table "swifthub"."main"."dim_users__dbt_tmp" rename to "dim_users"
+[0m19:25:57.208135 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.211166 [debug] [Thread-4 (]: On model.swifthub_analytics.dim_users: COMMIT
+[0m19:25:57.211166 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.dim_users"
+[0m19:25:57.212183 [debug] [Thread-4 (]: On model.swifthub_analytics.dim_users: COMMIT
+[0m19:25:57.215692 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.220222 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.dim_users"
+[0m19:25:57.220736 [debug] [Thread-4 (]: On model.swifthub_analytics.dim_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_users"} */
+drop table if exists "swifthub"."main"."dim_users__dbt_backup" cascade
+[0m19:25:57.221313 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:25:57.223890 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.dim_users (execute): 19:25:57.155898 => 19:25:57.223890
+[0m19:25:57.224887 [debug] [Thread-4 (]: On model.swifthub_analytics.dim_users: Close
+[0m19:25:57.249959 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '913e2ea8-d578-418d-a14e-d5509750467a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCCE350A0>]}
+[0m19:25:57.250963 [info ] [Thread-4 (]: 9 of 9 OK created sql table model main.dim_users ............................... [[32mOK[0m in 0.10s]
+[0m19:25:57.251468 [debug] [Thread-4 (]: Finished running node model.swifthub_analytics.dim_users
+[0m19:25:57.254033 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:25:57.254033 [debug] [MainThread]: On master: BEGIN
+[0m19:25:57.255047 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m19:25:57.284416 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:25:57.284959 [debug] [MainThread]: On master: COMMIT
+[0m19:25:57.285483 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:25:57.285994 [debug] [MainThread]: On master: COMMIT
+[0m19:25:57.286628 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:25:57.287743 [debug] [MainThread]: On master: Close
+[0m19:25:57.291868 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:25:57.291868 [debug] [MainThread]: Connection 'create_swifthub_main' was properly closed.
+[0m19:25:57.292888 [debug] [MainThread]: Connection 'list_swifthub_main' was properly closed.
+[0m19:25:57.292888 [debug] [MainThread]: Connection 'model.swifthub_analytics.dim_drivers' was properly closed.
+[0m19:25:57.292888 [debug] [MainThread]: Connection 'model.swifthub_analytics.fct_transactions' was properly closed.
+[0m19:25:57.293888 [debug] [MainThread]: Connection 'model.swifthub_analytics.stg_users' was properly closed.
+[0m19:25:57.293888 [debug] [MainThread]: Connection 'model.swifthub_analytics.dim_users' was properly closed.
+[0m19:25:57.295753 [info ] [MainThread]: 
+[0m19:25:57.295753 [info ] [MainThread]: Finished running 4 view models, 5 table models in 0 hours 0 minutes and 1.14 seconds (1.14s).
+[0m19:25:57.299281 [debug] [MainThread]: Command end result
+[0m19:25:57.312958 [info ] [MainThread]: 
+[0m19:25:57.313963 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m19:25:57.315696 [info ] [MainThread]: 
+[0m19:25:57.316205 [info ] [MainThread]: Done. PASS=9 WARN=0 ERROR=0 SKIP=0 TOTAL=9
+[0m19:25:57.318029 [debug] [MainThread]: Command `dbt run` succeeded at 19:25:57.317432 after 3.84 seconds
+[0m19:25:57.318542 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCB330770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCB8A4920>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000026BCB8A5D00>]}
+[0m19:25:57.319055 [debug] [MainThread]: Flushing usage events
+[0m19:26:00.957870 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A0314F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A032E40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A032F00>]}
+
+
+============================== 19:26:00.963397 | daca0afc-0f1a-4184-afea-33fb6cc52da7 ==============================
+[0m19:26:00.963397 [info ] [MainThread]: Running with dbt=1.7.19
+[0m19:26:00.964395 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': "C:\\Users\\Ade's PC\\OneDrive\\Dokumen\\Git\\super-app-data-projects\\dbt_project", 'fail_fast': 'False', 'debug': 'False', 'log_path': "C:\\Users\\Ade's PC\\OneDrive\\Dokumen\\Git\\super-app-data-projects\\dbt_project\\logs", 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt build --target dev', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m19:26:01.351554 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'daca0afc-0f1a-4184-afea-33fb6cc52da7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A224B00>]}
+[0m19:26:01.425170 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'daca0afc-0f1a-4184-afea-33fb6cc52da7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A225E80>]}
+[0m19:26:01.427170 [info ] [MainThread]: Registered adapter: duckdb=1.7.2
+[0m19:26:01.438765 [debug] [MainThread]: checksum: 7b8f7d4febbfc5f8b47662690941ab7a9f17369633611bd529eca733d14dc95e, vars: {}, profile: , target: dev, version: 1.7.19
+[0m19:26:01.539529 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m19:26:01.541048 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m19:26:01.549081 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'daca0afc-0f1a-4184-afea-33fb6cc52da7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A3745C0>]}
+[0m19:26:01.564640 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'daca0afc-0f1a-4184-afea-33fb6cc52da7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A4115E0>]}
+[0m19:26:01.565639 [info ] [MainThread]: Found 9 models, 4 sources, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m19:26:01.568673 [info ] [MainThread]: 
+[0m19:26:01.569176 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m19:26:01.571780 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_swifthub'
+[0m19:26:01.587388 [debug] [ThreadPool]: Using duckdb connection "list_swifthub"
+[0m19:26:01.587905 [debug] [ThreadPool]: On list_swifthub: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "list_swifthub"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"swifthub"'
+    
+  
+  
+[0m19:26:01.588418 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:26:01.612727 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:26:01.614244 [debug] [ThreadPool]: On list_swifthub: Close
+[0m19:26:01.619295 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_swifthub, now create_swifthub_main)
+[0m19:26:01.619295 [debug] [ThreadPool]: Creating schema "database: "swifthub"
+schema: "main"
+"
+[0m19:26:01.628418 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:26:01.629427 [debug] [ThreadPool]: On create_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "create_swifthub_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='swifthub'
+        and type='sqlite'
+    
+  
+[0m19:26:01.629427 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m19:26:01.651417 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:26:01.653469 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:26:01.653469 [debug] [ThreadPool]: On create_swifthub_main: BEGIN
+[0m19:26:01.654470 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:26:01.654972 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:26:01.655975 [debug] [ThreadPool]: On create_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "create_swifthub_main"} */
+
+    
+    
+        create schema if not exists "swifthub"."main"
+    
+[0m19:26:01.656479 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:26:01.657483 [debug] [ThreadPool]: On create_swifthub_main: COMMIT
+[0m19:26:01.658494 [debug] [ThreadPool]: Using duckdb connection "create_swifthub_main"
+[0m19:26:01.658494 [debug] [ThreadPool]: On create_swifthub_main: COMMIT
+[0m19:26:01.659998 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:26:01.659998 [debug] [ThreadPool]: On create_swifthub_main: Close
+[0m19:26:01.666026 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_swifthub_main'
+[0m19:26:01.672675 [debug] [ThreadPool]: Using duckdb connection "list_swifthub_main"
+[0m19:26:01.673687 [debug] [ThreadPool]: On list_swifthub_main: BEGIN
+[0m19:26:01.673687 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:26:01.695814 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:26:01.696321 [debug] [ThreadPool]: Using duckdb connection "list_swifthub_main"
+[0m19:26:01.696321 [debug] [ThreadPool]: On list_swifthub_main: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "connection_name": "list_swifthub_main"} */
+select
+      'swifthub' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'swifthub'
+  
+[0m19:26:01.716705 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m19:26:01.718826 [debug] [ThreadPool]: On list_swifthub_main: ROLLBACK
+[0m19:26:01.720840 [debug] [ThreadPool]: Failed to rollback 'list_swifthub_main'
+[0m19:26:01.721386 [debug] [ThreadPool]: On list_swifthub_main: Close
+[0m19:26:01.727435 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'daca0afc-0f1a-4184-afea-33fb6cc52da7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A2B80B0>]}
+[0m19:26:01.727946 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:26:01.727946 [debug] [MainThread]: On master: BEGIN
+[0m19:26:01.728953 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m19:26:01.750839 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:26:01.750839 [debug] [MainThread]: On master: COMMIT
+[0m19:26:01.750839 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:26:01.752393 [debug] [MainThread]: On master: COMMIT
+[0m19:26:01.753448 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:26:01.753448 [debug] [MainThread]: On master: Close
+[0m19:26:01.757480 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m19:26:01.758483 [info ] [MainThread]: 
+[0m19:26:01.764575 [debug] [Thread-1 (]: Began running node model.swifthub_analytics.fact_daily_revenue
+[0m19:26:01.764575 [debug] [Thread-2 (]: Began running node model.swifthub_analytics.stg_drivers
+[0m19:26:01.765572 [debug] [Thread-3 (]: Began running node model.swifthub_analytics.stg_merchants
+[0m19:26:01.766572 [debug] [Thread-4 (]: Began running node model.swifthub_analytics.stg_transactions
+[0m19:26:01.766572 [info ] [Thread-1 (]: 1 of 9 START sql table model main.fact_daily_revenue ........................... [RUN]
+[0m19:26:01.768076 [info ] [Thread-2 (]: 2 of 9 START sql view model main.stg_drivers ................................... [RUN]
+[0m19:26:01.768076 [info ] [Thread-3 (]: 3 of 9 START sql view model main.stg_merchants ................................. [RUN]
+[0m19:26:01.769583 [info ] [Thread-4 (]: 4 of 9 START sql view model main.stg_transactions .............................. [RUN]
+[0m19:26:01.770613 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.swifthub_analytics.fact_daily_revenue'
+[0m19:26:01.771639 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_drivers'
+[0m19:26:01.772663 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_merchants'
+[0m19:26:01.773694 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.swifthub_analytics.stg_transactions'
+[0m19:26:01.774203 [debug] [Thread-1 (]: Began compiling node model.swifthub_analytics.fact_daily_revenue
+[0m19:26:01.774720 [debug] [Thread-2 (]: Began compiling node model.swifthub_analytics.stg_drivers
+[0m19:26:01.775236 [debug] [Thread-3 (]: Began compiling node model.swifthub_analytics.stg_merchants
+[0m19:26:01.775751 [debug] [Thread-4 (]: Began compiling node model.swifthub_analytics.stg_transactions
+[0m19:26:01.785722 [debug] [Thread-1 (]: Writing injected SQL for node "model.swifthub_analytics.fact_daily_revenue"
+[0m19:26:01.789300 [debug] [Thread-2 (]: Writing injected SQL for node "model.swifthub_analytics.stg_drivers"
+[0m19:26:01.792946 [debug] [Thread-3 (]: Writing injected SQL for node "model.swifthub_analytics.stg_merchants"
+[0m19:26:01.796803 [debug] [Thread-4 (]: Writing injected SQL for node "model.swifthub_analytics.stg_transactions"
+[0m19:26:01.798349 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.fact_daily_revenue (compile): 19:26:01.776268 => 19:26:01.798349
+[0m19:26:01.799352 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.stg_transactions (compile): 19:26:01.793462 => 19:26:01.799352
+[0m19:26:01.799857 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.stg_merchants (compile): 19:26:01.789805 => 19:26:01.799857
+[0m19:26:01.801198 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.stg_drivers (compile): 19:26:01.786231 => 19:26:01.800861
+[0m19:26:01.801702 [debug] [Thread-1 (]: Began executing node model.swifthub_analytics.fact_daily_revenue
+[0m19:26:01.802375 [debug] [Thread-4 (]: Began executing node model.swifthub_analytics.stg_transactions
+[0m19:26:01.802817 [debug] [Thread-3 (]: Began executing node model.swifthub_analytics.stg_merchants
+[0m19:26:01.803320 [debug] [Thread-2 (]: Began executing node model.swifthub_analytics.stg_drivers
+[0m19:26:01.864618 [debug] [Thread-1 (]: Writing runtime sql for node "model.swifthub_analytics.fact_daily_revenue"
+[0m19:26:01.877492 [debug] [Thread-4 (]: Writing runtime sql for node "model.swifthub_analytics.stg_transactions"
+[0m19:26:01.884026 [debug] [Thread-3 (]: Writing runtime sql for node "model.swifthub_analytics.stg_merchants"
+[0m19:26:01.889535 [debug] [Thread-2 (]: Writing runtime sql for node "model.swifthub_analytics.stg_drivers"
+[0m19:26:01.890543 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:26:01.892057 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:26:01.893615 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: BEGIN
+[0m19:26:01.893076 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: BEGIN
+[0m19:26:01.895131 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m19:26:01.895131 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:26:01.893615 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m19:26:01.895131 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:26:01.896650 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: BEGIN
+[0m19:26:01.897665 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: BEGIN
+[0m19:26:01.897665 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m19:26:01.898663 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m19:26:01.917284 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:26:01.918384 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:26:01.918888 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:26:01.918888 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:26:01.919937 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:26:01.919937 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:01.920937 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:26:01.921442 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fact_daily_revenue"} */
+
+  
+    
+    
+
+    create  table
+      "swifthub"."main"."fact_daily_revenue__dbt_tmp"
+  
+    as (
+      
+
+WITH raw_transactions AS (
+    -- DuckDB natively binds exactly to local massive parquet files
+    SELECT *
+    FROM read_parquet('../data/production/transactions.parquet')
+)
+
+SELECT
+    date_trunc('day', CAST(date AS TIMESTAMP)) AS transaction_date,
+    department,
+    service_id,
+    COUNT(transaction_id) as total_tx_volume,
+    SUM(total_amount) as total_gross_revenue,
+    AVG(total_amount) as average_basket_size
+FROM raw_transactions
+GROUP BY 1, 2, 3
+ORDER BY 1 DESC, 5 DESC
+    );
+  
+  
+[0m19:26:01.921442 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_merchants"} */
+
+  
+  create view "swifthub"."main"."stg_merchants__dbt_tmp" as (
+    
+
+WITH raw_merchants AS (
+    SELECT * FROM read_parquet('../data/production/merchants.parquet')
+)
+
+SELECT
+    CAST(merchant_id AS VARCHAR) AS merchant_id,
+    CAST(merchant_name AS VARCHAR) AS merchant_name,
+    CAST(service_type AS VARCHAR) AS service_type,
+    CAST(department AS VARCHAR) AS department,
+    CAST(city AS VARCHAR) AS city,
+    CAST(rating AS DOUBLE) AS merchant_rating
+FROM raw_merchants
+  );
+
+[0m19:26:01.922947 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:26:01.922947 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_transactions"} */
+
+  
+  create view "swifthub"."main"."stg_transactions__dbt_tmp" as (
+    
+
+WITH raw_transactions AS (
+    SELECT * FROM read_parquet('../data/production/transactions.parquet')
+)
+
+SELECT
+    CAST(transaction_id AS VARCHAR) AS transaction_id,
+    CAST(date AS TIMESTAMP) AS transaction_timestamp,
+    CAST(user_id AS VARCHAR) AS user_id,
+    CAST(driver_id AS VARCHAR) AS driver_id,
+    CAST(merchant_id AS VARCHAR) AS merchant_id,
+    CAST(service_id AS VARCHAR) AS service_id,
+    CAST(quantity AS INTEGER) AS quantity,
+    CAST(base_amount AS DOUBLE) AS base_amount,
+    CAST(discounted_amount AS DOUBLE) AS discounted_amount,
+    CAST(total_amount AS DOUBLE) AS total_amount,
+    CAST(payment_method AS VARCHAR) AS payment_method,
+    CAST(department AS VARCHAR) AS department,
+    CAST(city AS VARCHAR) AS city,
+    CAST(region AS VARCHAR) AS region,
+    CAST(promotion_id AS VARCHAR) AS promotion_id
+FROM raw_transactions
+  );
+
+[0m19:26:01.924963 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_drivers"} */
+
+  
+  create view "swifthub"."main"."stg_drivers__dbt_tmp" as (
+    
+
+WITH raw_drivers AS (
+    SELECT * FROM read_parquet('../data/production/drivers.parquet')
+)
+
+SELECT
+    CAST(driver_id AS VARCHAR) AS driver_id,
+    CAST(name AS VARCHAR) AS name,
+    CAST(gender AS VARCHAR) AS gender,
+    CAST(age AS INTEGER) AS age,
+    CAST(city AS VARCHAR) AS city,
+    CAST(vehicle_type AS VARCHAR) AS vehicle_type,
+    CAST(rating AS DOUBLE) AS driver_rating
+FROM raw_drivers
+  );
+
+[0m19:26:01.926963 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:01.934411 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:26:01.934411 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:26:01.937930 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:26:01.937930 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:26:01.942979 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:26:01.946003 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:26:01.947511 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_drivers"} */
+alter view "swifthub"."main"."stg_drivers" rename to "stg_drivers__dbt_backup"
+[0m19:26:01.952551 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:26:01.953555 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_transactions"} */
+alter view "swifthub"."main"."stg_transactions" rename to "stg_transactions__dbt_backup"
+[0m19:26:01.953555 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fact_daily_revenue"} */
+alter table "swifthub"."main"."fact_daily_revenue" rename to "fact_daily_revenue__dbt_backup"
+[0m19:26:01.955060 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_merchants"} */
+alter view "swifthub"."main"."stg_merchants" rename to "stg_merchants__dbt_backup"
+[0m19:26:01.955060 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:01.961127 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:26:01.961632 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:26:01.962190 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_drivers"} */
+alter view "swifthub"."main"."stg_drivers__dbt_tmp" rename to "stg_drivers"
+[0m19:26:01.963201 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:26:01.963201 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:26:01.969730 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:26:01.976257 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:26:01.982283 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:01.983284 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:26:01.984293 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_transactions"} */
+alter view "swifthub"."main"."stg_transactions__dbt_tmp" rename to "stg_transactions"
+[0m19:26:01.985305 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fact_daily_revenue"} */
+alter table "swifthub"."main"."fact_daily_revenue__dbt_tmp" rename to "fact_daily_revenue"
+[0m19:26:01.996415 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_merchants"} */
+alter view "swifthub"."main"."stg_merchants__dbt_tmp" rename to "stg_merchants"
+[0m19:26:02.010038 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: COMMIT
+[0m19:26:02.012572 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:26:02.013079 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: COMMIT
+[0m19:26:02.014083 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.014083 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.015084 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.025672 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: COMMIT
+[0m19:26:02.028216 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: COMMIT
+[0m19:26:02.028216 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.031263 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: COMMIT
+[0m19:26:02.032264 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:26:02.033768 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:26:02.042906 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_drivers"
+[0m19:26:02.044426 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:26:02.044426 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: COMMIT
+[0m19:26:02.045431 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: COMMIT
+[0m19:26:02.045431 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_drivers"} */
+drop view if exists "swifthub"."main"."stg_drivers__dbt_backup" cascade
+[0m19:26:02.046431 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: COMMIT
+[0m19:26:02.049433 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.053457 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.fact_daily_revenue"
+[0m19:26:02.054462 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.054462 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.055982 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fact_daily_revenue"} */
+drop table if exists "swifthub"."main"."fact_daily_revenue__dbt_backup" cascade
+[0m19:26:02.055982 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.061563 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.stg_transactions"
+[0m19:26:02.066088 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.stg_drivers (execute): 19:26:01.884026 => 19:26:02.065082
+[0m19:26:02.072996 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.stg_merchants"
+[0m19:26:02.075028 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_transactions"} */
+drop view if exists "swifthub"."main"."stg_transactions__dbt_backup" cascade
+[0m19:26:02.075535 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.075535 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_drivers: Close
+[0m19:26:02.076540 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_merchants"} */
+drop view if exists "swifthub"."main"."stg_merchants__dbt_backup" cascade
+[0m19:26:02.080067 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.fact_daily_revenue (execute): 19:26:01.803840 => 19:26:02.079063
+[0m19:26:02.081066 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'daca0afc-0f1a-4184-afea-33fb6cc52da7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A5117C0>]}
+[0m19:26:02.082068 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.082068 [debug] [Thread-1 (]: On model.swifthub_analytics.fact_daily_revenue: Close
+[0m19:26:02.084089 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.086608 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.stg_transactions (execute): 19:26:01.824356 => 19:26:02.086102
+[0m19:26:02.083574 [info ] [Thread-2 (]: 2 of 9 OK created sql view model main.stg_drivers .............................. [[32mOK[0m in 0.31s]
+[0m19:26:02.088612 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.stg_merchants (execute): 19:26:01.877995 => 19:26:02.088612
+[0m19:26:02.090117 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'daca0afc-0f1a-4184-afea-33fb6cc52da7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A513E30>]}
+[0m19:26:02.090622 [debug] [Thread-4 (]: On model.swifthub_analytics.stg_transactions: Close
+[0m19:26:02.090622 [debug] [Thread-2 (]: Finished running node model.swifthub_analytics.stg_drivers
+[0m19:26:02.092140 [debug] [Thread-3 (]: On model.swifthub_analytics.stg_merchants: Close
+[0m19:26:02.094716 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'daca0afc-0f1a-4184-afea-33fb6cc52da7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A583050>]}
+[0m19:26:02.093698 [info ] [Thread-1 (]: 1 of 9 OK created sql table model main.fact_daily_revenue ...................... [[32mOK[0m in 0.32s]
+[0m19:26:02.094716 [debug] [Thread-2 (]: Began running node model.swifthub_analytics.stg_users
+[0m19:26:02.096800 [info ] [Thread-4 (]: 4 of 9 OK created sql view model main.stg_transactions ......................... [[32mOK[0m in 0.32s]
+[0m19:26:02.097812 [debug] [Thread-1 (]: Finished running node model.swifthub_analytics.fact_daily_revenue
+[0m19:26:02.098811 [info ] [Thread-2 (]: 5 of 9 START sql view model main.stg_users ..................................... [RUN]
+[0m19:26:02.099837 [debug] [Thread-4 (]: Finished running node model.swifthub_analytics.stg_transactions
+[0m19:26:02.099837 [debug] [Thread-1 (]: Began running node model.swifthub_analytics.dim_drivers
+[0m19:26:02.102568 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.swifthub_analytics.stg_drivers, now model.swifthub_analytics.stg_users)
+[0m19:26:02.103502 [debug] [Thread-4 (]: Began running node model.swifthub_analytics.fct_transactions
+[0m19:26:02.104004 [info ] [Thread-1 (]: 6 of 9 START sql table model main.dim_drivers .................................. [RUN]
+[0m19:26:02.105005 [debug] [Thread-2 (]: Began compiling node model.swifthub_analytics.stg_users
+[0m19:26:02.105508 [info ] [Thread-4 (]: 7 of 9 START sql table model main.fct_transactions ............................. [RUN]
+[0m19:26:02.111584 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.swifthub_analytics.stg_transactions, now model.swifthub_analytics.fct_transactions)
+[0m19:26:02.110559 [debug] [Thread-2 (]: Writing injected SQL for node "model.swifthub_analytics.stg_users"
+[0m19:26:02.106579 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.swifthub_analytics.fact_daily_revenue, now model.swifthub_analytics.dim_drivers)
+[0m19:26:02.112432 [debug] [Thread-4 (]: Began compiling node model.swifthub_analytics.fct_transactions
+[0m19:26:02.113953 [debug] [Thread-1 (]: Began compiling node model.swifthub_analytics.dim_drivers
+[0m19:26:02.118367 [debug] [Thread-4 (]: Writing injected SQL for node "model.swifthub_analytics.fct_transactions"
+[0m19:26:02.120450 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'daca0afc-0f1a-4184-afea-33fb6cc52da7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A528B00>]}
+[0m19:26:02.124173 [debug] [Thread-1 (]: Writing injected SQL for node "model.swifthub_analytics.dim_drivers"
+[0m19:26:02.125213 [info ] [Thread-3 (]: 3 of 9 OK created sql view model main.stg_merchants ............................ [[32mOK[0m in 0.35s]
+[0m19:26:02.126305 [debug] [Thread-3 (]: Finished running node model.swifthub_analytics.stg_merchants
+[0m19:26:02.127310 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.stg_users (compile): 19:26:02.107313 => 19:26:02.126305
+[0m19:26:02.128383 [debug] [Thread-2 (]: Began executing node model.swifthub_analytics.stg_users
+[0m19:26:02.129326 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.dim_drivers (compile): 19:26:02.120450 => 19:26:02.128823
+[0m19:26:02.129837 [debug] [Thread-3 (]: Began running node model.swifthub_analytics.dim_merchants
+[0m19:26:02.130441 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.fct_transactions (compile): 19:26:02.114589 => 19:26:02.129837
+[0m19:26:02.136442 [debug] [Thread-2 (]: Writing runtime sql for node "model.swifthub_analytics.stg_users"
+[0m19:26:02.136966 [debug] [Thread-1 (]: Began executing node model.swifthub_analytics.dim_drivers
+[0m19:26:02.138004 [info ] [Thread-3 (]: 8 of 9 START sql table model main.dim_merchants ................................ [RUN]
+[0m19:26:02.138524 [debug] [Thread-4 (]: Began executing node model.swifthub_analytics.fct_transactions
+[0m19:26:02.144105 [debug] [Thread-1 (]: Writing runtime sql for node "model.swifthub_analytics.dim_drivers"
+[0m19:26:02.145146 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.swifthub_analytics.stg_merchants, now model.swifthub_analytics.dim_merchants)
+[0m19:26:02.151721 [debug] [Thread-4 (]: Writing runtime sql for node "model.swifthub_analytics.fct_transactions"
+[0m19:26:02.152735 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:26:02.153243 [debug] [Thread-3 (]: Began compiling node model.swifthub_analytics.dim_merchants
+[0m19:26:02.154280 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_users: BEGIN
+[0m19:26:02.158336 [debug] [Thread-3 (]: Writing injected SQL for node "model.swifthub_analytics.dim_merchants"
+[0m19:26:02.159368 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m19:26:02.159368 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.dim_drivers"
+[0m19:26:02.160876 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.fct_transactions"
+[0m19:26:02.161389 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: BEGIN
+[0m19:26:02.162047 [debug] [Thread-4 (]: On model.swifthub_analytics.fct_transactions: BEGIN
+[0m19:26:02.162047 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m19:26:02.163679 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.dim_merchants (compile): 19:26:02.154726 => 19:26:02.162961
+[0m19:26:02.164306 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m19:26:02.164882 [debug] [Thread-3 (]: Began executing node model.swifthub_analytics.dim_merchants
+[0m19:26:02.171242 [debug] [Thread-3 (]: Writing runtime sql for node "model.swifthub_analytics.dim_merchants"
+[0m19:26:02.173311 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.dim_merchants"
+[0m19:26:02.173311 [debug] [Thread-3 (]: On model.swifthub_analytics.dim_merchants: BEGIN
+[0m19:26:02.174321 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m19:26:02.190856 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.191372 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:26:02.191887 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.192935 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.192935 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.193935 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_users"} */
+
+  
+  create view "swifthub"."main"."stg_users__dbt_tmp" as (
+    
+
+WITH raw_users AS (
+    SELECT * FROM read_parquet('../data/production/users.parquet')
+)
+
+SELECT
+    CAST(user_id AS VARCHAR) AS user_id,
+    CAST(name AS VARCHAR) AS name,
+    CAST(gender AS VARCHAR) AS gender,
+    CAST(age AS INTEGER) AS age,
+    CAST(city AS VARCHAR) AS city,
+    CAST(region AS VARCHAR) AS region,
+    CAST(loyalty_tier AS VARCHAR) AS loyalty_tier,
+    CAST(churn_risk_score AS DOUBLE) AS churn_risk_score
+FROM raw_users
+  );
+
+[0m19:26:02.194440 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.fct_transactions"
+[0m19:26:02.195444 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.dim_merchants"
+[0m19:26:02.195444 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.dim_drivers"
+[0m19:26:02.196446 [debug] [Thread-4 (]: On model.swifthub_analytics.fct_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fct_transactions"} */
+
+  
+    
+    
+
+    create  table
+      "swifthub"."main"."fct_transactions__dbt_tmp"
+  
+    as (
+      
+
+SELECT
+    *
+FROM "swifthub"."main"."stg_transactions"
+    );
+  
+  
+[0m19:26:02.197444 [debug] [Thread-3 (]: On model.swifthub_analytics.dim_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_merchants"} */
+
+  
+    
+    
+
+    create  table
+      "swifthub"."main"."dim_merchants__dbt_tmp"
+  
+    as (
+      
+
+SELECT
+    *
+FROM "swifthub"."main"."stg_merchants"
+    );
+  
+  
+[0m19:26:02.198444 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_drivers"} */
+
+  
+    
+    
+
+    create  table
+      "swifthub"."main"."dim_drivers__dbt_tmp"
+  
+    as (
+      
+
+SELECT
+    *
+FROM "swifthub"."main"."stg_drivers"
+    );
+  
+  
+[0m19:26:02.198444 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.204472 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:26:02.205988 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_users"} */
+alter view "swifthub"."main"."stg_users" rename to "stg_users__dbt_backup"
+[0m19:26:02.205988 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.207504 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.207504 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.320687 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.dim_merchants"
+[0m19:26:02.321191 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.324778 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.fct_transactions"
+[0m19:26:02.328822 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.dim_drivers"
+[0m19:26:02.329826 [debug] [Thread-3 (]: On model.swifthub_analytics.dim_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_merchants"} */
+alter table "swifthub"."main"."dim_merchants" rename to "dim_merchants__dbt_backup"
+[0m19:26:02.334348 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:26:02.334853 [debug] [Thread-4 (]: On model.swifthub_analytics.fct_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fct_transactions"} */
+alter table "swifthub"."main"."fct_transactions" rename to "fct_transactions__dbt_backup"
+[0m19:26:02.334853 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_drivers"} */
+alter table "swifthub"."main"."dim_drivers" rename to "dim_drivers__dbt_backup"
+[0m19:26:02.335857 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_users"} */
+alter view "swifthub"."main"."stg_users__dbt_tmp" rename to "stg_users"
+[0m19:26:02.336869 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.337868 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.337868 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.342941 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.dim_merchants"
+[0m19:26:02.342941 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.347450 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.fct_transactions"
+[0m19:26:02.350957 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.dim_drivers"
+[0m19:26:02.352738 [debug] [Thread-3 (]: On model.swifthub_analytics.dim_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_merchants"} */
+alter table "swifthub"."main"."dim_merchants__dbt_tmp" rename to "dim_merchants"
+[0m19:26:02.354301 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_users: COMMIT
+[0m19:26:02.355811 [debug] [Thread-4 (]: On model.swifthub_analytics.fct_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fct_transactions"} */
+alter table "swifthub"."main"."fct_transactions__dbt_tmp" rename to "fct_transactions"
+[0m19:26:02.356323 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_drivers"} */
+alter table "swifthub"."main"."dim_drivers__dbt_tmp" rename to "dim_drivers"
+[0m19:26:02.356323 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:26:02.357831 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.359345 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.359345 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_users: COMMIT
+[0m19:26:02.362430 [debug] [Thread-3 (]: On model.swifthub_analytics.dim_merchants: COMMIT
+[0m19:26:02.363431 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.366940 [debug] [Thread-4 (]: On model.swifthub_analytics.fct_transactions: COMMIT
+[0m19:26:02.367444 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.dim_merchants"
+[0m19:26:02.372343 [debug] [Thread-3 (]: On model.swifthub_analytics.dim_merchants: COMMIT
+[0m19:26:02.372343 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.fct_transactions"
+[0m19:26:02.370696 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: COMMIT
+[0m19:26:02.373348 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.374362 [debug] [Thread-4 (]: On model.swifthub_analytics.fct_transactions: COMMIT
+[0m19:26:02.374362 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.dim_drivers"
+[0m19:26:02.378376 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.stg_users"
+[0m19:26:02.379385 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.379385 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: COMMIT
+[0m19:26:02.380389 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.stg_users"} */
+drop view if exists "swifthub"."main"."stg_users__dbt_backup" cascade
+[0m19:26:02.384412 [debug] [Thread-3 (]: Using duckdb connection "model.swifthub_analytics.dim_merchants"
+[0m19:26:02.384916 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.385919 [debug] [Thread-3 (]: On model.swifthub_analytics.dim_merchants: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_merchants"} */
+drop table if exists "swifthub"."main"."dim_merchants__dbt_backup" cascade
+[0m19:26:02.385919 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.390505 [debug] [Thread-4 (]: Using duckdb connection "model.swifthub_analytics.fct_transactions"
+[0m19:26:02.390505 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.394595 [debug] [Thread-1 (]: Using duckdb connection "model.swifthub_analytics.dim_drivers"
+[0m19:26:02.395600 [debug] [Thread-4 (]: On model.swifthub_analytics.fct_transactions: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.fct_transactions"} */
+drop table if exists "swifthub"."main"."fct_transactions__dbt_backup" cascade
+[0m19:26:02.398107 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.stg_users (execute): 19:26:02.130441 => 19:26:02.398107
+[0m19:26:02.398107 [debug] [Thread-3 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.399112 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_drivers"} */
+drop table if exists "swifthub"."main"."dim_drivers__dbt_backup" cascade
+[0m19:26:02.400125 [debug] [Thread-2 (]: On model.swifthub_analytics.stg_users: Close
+[0m19:26:02.402134 [debug] [Thread-3 (]: Timing info for model.swifthub_analytics.dim_merchants (execute): 19:26:02.165386 => 19:26:02.402134
+[0m19:26:02.402134 [debug] [Thread-4 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.403146 [debug] [Thread-3 (]: On model.swifthub_analytics.dim_merchants: Close
+[0m19:26:02.404666 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'daca0afc-0f1a-4184-afea-33fb6cc52da7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A4F1700>]}
+[0m19:26:02.406174 [debug] [Thread-4 (]: Timing info for model.swifthub_analytics.fct_transactions (execute): 19:26:02.145658 => 19:26:02.406174
+[0m19:26:02.407679 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.408193 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'daca0afc-0f1a-4184-afea-33fb6cc52da7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A4F21B0>]}
+[0m19:26:02.409706 [info ] [Thread-2 (]: 5 of 9 OK created sql view model main.stg_users ................................ [[32mOK[0m in 0.30s]
+[0m19:26:02.409706 [debug] [Thread-4 (]: On model.swifthub_analytics.fct_transactions: Close
+[0m19:26:02.412327 [debug] [Thread-1 (]: Timing info for model.swifthub_analytics.dim_drivers (execute): 19:26:02.139166 => 19:26:02.412327
+[0m19:26:02.413326 [info ] [Thread-3 (]: 8 of 9 OK created sql table model main.dim_merchants ........................... [[32mOK[0m in 0.26s]
+[0m19:26:02.414327 [debug] [Thread-2 (]: Finished running node model.swifthub_analytics.stg_users
+[0m19:26:02.415327 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'daca0afc-0f1a-4184-afea-33fb6cc52da7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A5E5D60>]}
+[0m19:26:02.416327 [debug] [Thread-1 (]: On model.swifthub_analytics.dim_drivers: Close
+[0m19:26:02.417327 [debug] [Thread-3 (]: Finished running node model.swifthub_analytics.dim_merchants
+[0m19:26:02.419339 [debug] [Thread-2 (]: Began running node model.swifthub_analytics.dim_users
+[0m19:26:02.418336 [info ] [Thread-4 (]: 7 of 9 OK created sql table model main.fct_transactions ........................ [[32mOK[0m in 0.30s]
+[0m19:26:02.420488 [info ] [Thread-2 (]: 9 of 9 START sql table model main.dim_users .................................... [RUN]
+[0m19:26:02.421659 [debug] [Thread-4 (]: Finished running node model.swifthub_analytics.fct_transactions
+[0m19:26:02.422805 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.swifthub_analytics.stg_users, now model.swifthub_analytics.dim_users)
+[0m19:26:02.423564 [debug] [Thread-2 (]: Began compiling node model.swifthub_analytics.dim_users
+[0m19:26:02.427865 [debug] [Thread-2 (]: Writing injected SQL for node "model.swifthub_analytics.dim_users"
+[0m19:26:02.429911 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.dim_users (compile): 19:26:02.424091 => 19:26:02.429911
+[0m19:26:02.430911 [debug] [Thread-2 (]: Began executing node model.swifthub_analytics.dim_users
+[0m19:26:02.446270 [debug] [Thread-2 (]: Writing runtime sql for node "model.swifthub_analytics.dim_users"
+[0m19:26:02.448760 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.dim_users"
+[0m19:26:02.449243 [debug] [Thread-2 (]: On model.swifthub_analytics.dim_users: BEGIN
+[0m19:26:02.450261 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m19:26:02.465926 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'daca0afc-0f1a-4184-afea-33fb6cc52da7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A5F7500>]}
+[0m19:26:02.467491 [info ] [Thread-1 (]: 6 of 9 OK created sql table model main.dim_drivers ............................. [[32mOK[0m in 0.36s]
+[0m19:26:02.468307 [debug] [Thread-1 (]: Finished running node model.swifthub_analytics.dim_drivers
+[0m19:26:02.496111 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.496665 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.dim_users"
+[0m19:26:02.497723 [debug] [Thread-2 (]: On model.swifthub_analytics.dim_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_users"} */
+
+  
+    
+    
+
+    create  table
+      "swifthub"."main"."dim_users__dbt_tmp"
+  
+    as (
+      
+
+SELECT
+    *
+FROM "swifthub"."main"."stg_users"
+    );
+  
+  
+[0m19:26:02.501999 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.506868 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.dim_users"
+[0m19:26:02.507457 [debug] [Thread-2 (]: On model.swifthub_analytics.dim_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_users"} */
+alter table "swifthub"."main"."dim_users" rename to "dim_users__dbt_backup"
+[0m19:26:02.508603 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.513353 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.dim_users"
+[0m19:26:02.514359 [debug] [Thread-2 (]: On model.swifthub_analytics.dim_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_users"} */
+alter table "swifthub"."main"."dim_users__dbt_tmp" rename to "dim_users"
+[0m19:26:02.515886 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.519701 [debug] [Thread-2 (]: On model.swifthub_analytics.dim_users: COMMIT
+[0m19:26:02.520885 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.dim_users"
+[0m19:26:02.521437 [debug] [Thread-2 (]: On model.swifthub_analytics.dim_users: COMMIT
+[0m19:26:02.525498 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.528518 [debug] [Thread-2 (]: Using duckdb connection "model.swifthub_analytics.dim_users"
+[0m19:26:02.530026 [debug] [Thread-2 (]: On model.swifthub_analytics.dim_users: /* {"app": "dbt", "dbt_version": "1.7.19", "profile_name": "swifthub", "target_name": "dev", "node_id": "model.swifthub_analytics.dim_users"} */
+drop table if exists "swifthub"."main"."dim_users__dbt_backup" cascade
+[0m19:26:02.532045 [debug] [Thread-2 (]: SQL status: OK in 0.0 seconds
+[0m19:26:02.534067 [debug] [Thread-2 (]: Timing info for model.swifthub_analytics.dim_users (execute): 19:26:02.431375 => 19:26:02.534067
+[0m19:26:02.534067 [debug] [Thread-2 (]: On model.swifthub_analytics.dim_users: Close
+[0m19:26:02.559230 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'daca0afc-0f1a-4184-afea-33fb6cc52da7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A613CB0>]}
+[0m19:26:02.560734 [info ] [Thread-2 (]: 9 of 9 OK created sql table model main.dim_users ............................... [[32mOK[0m in 0.14s]
+[0m19:26:02.561254 [debug] [Thread-2 (]: Finished running node model.swifthub_analytics.dim_users
+[0m19:26:02.563782 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:26:02.564782 [debug] [MainThread]: On master: BEGIN
+[0m19:26:02.564782 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m19:26:02.595698 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:26:02.596228 [debug] [MainThread]: On master: COMMIT
+[0m19:26:02.596751 [debug] [MainThread]: Using duckdb connection "master"
+[0m19:26:02.597280 [debug] [MainThread]: On master: COMMIT
+[0m19:26:02.598222 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m19:26:02.599253 [debug] [MainThread]: On master: Close
+[0m19:26:02.603163 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:26:02.603688 [debug] [MainThread]: Connection 'create_swifthub_main' was properly closed.
+[0m19:26:02.604198 [debug] [MainThread]: Connection 'list_swifthub_main' was properly closed.
+[0m19:26:02.605250 [debug] [MainThread]: Connection 'model.swifthub_analytics.dim_drivers' was properly closed.
+[0m19:26:02.605250 [debug] [MainThread]: Connection 'model.swifthub_analytics.dim_users' was properly closed.
+[0m19:26:02.605766 [debug] [MainThread]: Connection 'model.swifthub_analytics.dim_merchants' was properly closed.
+[0m19:26:02.606356 [debug] [MainThread]: Connection 'model.swifthub_analytics.fct_transactions' was properly closed.
+[0m19:26:02.606988 [info ] [MainThread]: 
+[0m19:26:02.607504 [info ] [MainThread]: Finished running 4 view models, 5 table models in 0 hours 0 minutes and 1.04 seconds (1.04s).
+[0m19:26:02.610043 [debug] [MainThread]: Command end result
+[0m19:26:02.622326 [info ] [MainThread]: 
+[0m19:26:02.623340 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m19:26:02.623643 [info ] [MainThread]: 
+[0m19:26:02.624146 [info ] [MainThread]: Done. PASS=9 WARN=0 ERROR=0 SKIP=0 TOTAL=9
+[0m19:26:02.625755 [debug] [MainThread]: Command `dbt build` succeeded at 19:26:02.625237 after 1.82 seconds
+[0m19:26:02.626275 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC782C8770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A3D4470>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC7A622B70>]}
+[0m19:26:02.626795 [debug] [MainThread]: Flushing usage events

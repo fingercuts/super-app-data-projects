@@ -1,0 +1,37 @@
+[
+    {
+        "service_id": "RW-01",
+        "service_name": "RideWay Go",
+        "department": "RideWay"
+    },
+    {
+        "service_id": "RW-02",
+        "service_name": "RideWay Car",
+        "department": "RideWay"
+    },
+    {
+        "service_id": "FD-01",
+        "service_name": "Foodora Express",
+        "department": "Foodora"
+    },
+    {
+        "service_id": "QM-01",
+        "service_name": "QuickMart Essentials",
+        "department": "QuickMart"
+    },
+    {
+        "service_id": "PP-01",
+        "service_name": "ParcelPro Express",
+        "department": "ParcelPro"
+    },
+    {
+        "service_id": "PL-01",
+        "service_name": "PayLink Wallet",
+        "department": "PayLink"
+    },
+    {
+        "service_id": "LC-01",
+        "service_name": "LifeConnect Shopping",
+        "department": "LifeConnect"
+    }
+]

@@ -1,6 +1,20 @@
 # SwiftHub: Unified Analytics Platform for Super App Ecosystems
 
 An end-to-end data platform simulating the complex analytics lifecycle of **SwiftHub**, a multi-service super app operating in the Indonesian market.
+# SwiftHub: Enterprise Super-App Data Platform
+
+<div align="center">
+  <img src="docs/assets/executive_dashboard.png" width="49%">
+  <img src="docs/assets/geospatial_intelligence.png" width="49%">
+</div>
+<div align="center">
+  <img src="docs/assets/fleet_operations.png" width="49%">
+  <img src="docs/assets/star_schema.png" width="49%">
+</div>
+<br>
+
+> SwiftHub is a "Platinum Standard" enterprise data ecosystem designed for a multi-vertical Super-App. 
+> It leverages a **Medallion Architecture** to process real-time events from Ride-Hailing, Food Delivery, and Fintech verticals into high-fidelity executive intelligence.
 
 ---
 
