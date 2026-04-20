@@ -9,13 +9,11 @@ from confluent_kafka import Producer
 
 from config import *
 from logger import logger
-from schemas import TransactionContract
+from schemas import TransactionContract, is_peak_hour
 from pydantic import ValidationError
 
 np.random.seed() # Randomize without a fixed seed for continuous running
 
-def is_peak_hour(hour):
-    return (7 <= hour <= 9) or (17 <= hour <= 19)
 
 def delivery_report(err, msg):
     """ Called once for each message produced to indicate delivery result """

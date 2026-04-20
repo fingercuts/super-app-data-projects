@@ -53,3 +53,7 @@ class TransactionContract(BaseModel):
             if v != (info.data['base_amount'] - info.data['discounted_amount']):
                 raise ValueError("total_amount must equal base_amount - discounted_amount")
         return v
+
+def is_peak_hour(hour: int) -> bool:
+    """Check if the given hour is a peak business hour in Indonesia."""
+    return (7 <= hour <= 9) or (17 <= hour <= 19)
