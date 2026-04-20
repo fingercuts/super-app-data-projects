@@ -13,7 +13,7 @@ An end-to-end data platform simulating the complex analytics lifecycle of **Swif
 </div>
 <br>
 
-> SwiftHub is a "Platinum Standard" enterprise data ecosystem designed for a multi-vertical Super-App. 
+> SwiftHub is a **Production-Grade** enterprise data ecosystem designed for a multi-vertical Super-App. 
 > It leverages a **Medallion Architecture** to process real-time events from Ride-Hailing, Food Delivery, and Fintech verticals into high-fidelity executive intelligence.
 
 ---
