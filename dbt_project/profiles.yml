@@ -3,7 +3,7 @@ swifthub:
   outputs:
     dev:
       type: duckdb
-      path: '../data/swifthub.duckdb'
+      path: "{{ env_var('DBT_DATABASE_PATH', '../data/swifthub.duckdb') }}"
       extensions:
         - parquet
       threads: 4

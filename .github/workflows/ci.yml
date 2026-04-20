@@ -49,4 +49,6 @@ jobs:
         
     - name: DBT Compile
       run: |
-        cd dbt_project && dbt compile --target dev --vars '{"database_path": ":memory:"}'
+        cd dbt_project && dbt compile
+      env:
+        DBT_DATABASE_PATH: ":memory:"
