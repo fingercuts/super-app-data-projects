@@ -56,3 +56,8 @@ data_generator.py
 # Ignore large generated datasets (keep sample data)
 data/sample/*.parquet
 data/sample/*.csv
+
+# Tool caches & accidental uploads
+.agnes/
+upload_*
+
