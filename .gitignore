@@ -1,0 +1,58 @@
+# ---------------------------------------
+# Data Sources & Databases
+# ---------------------------------------
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Logs & Databases
+*.log
+*.duckdb
+*.duckdb.wal
+
+# ---------------------------------------
+# dbt Specific
+# ---------------------------------------
+dbt_project/target/
+dbt_project/dbt_packages/
+dbt_project/logs/
+
+# ---------------------------------------
+# General housekeeping
+# ---------------------------------------
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# AI & Interview Docs (Excluded from Public Repo)
+docs/AI_TUTOR_CONTEXT.md
+docs/Technical_Interview_Guide.md
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# ---------------------------------------
+# Proprietary / Secret Generation Scripts
+# ---------------------------------------
+# Exclude large-scale production generators
+scripts/generate_bulk.py
+scripts/mock_*.py
+data_generator.py
+
+# NOTE: Small sample generators ARE committed for reproducibility:
+# - scripts/generate_entities.py (committed)
+# - scripts/generate_transactions.py (committed)
+# - scripts/generate_dirty_data.py (committed)
+
+# Ignore large generated datasets (keep sample data)
+data/sample/*.parquet
+data/sample/*.csv

@@ -5,22 +5,19 @@ from typing import List, Optional
 from pydantic import BaseModel
 from datetime import datetime
 
-# Initialize FastAPI
 app = FastAPI(
-    title="⚡ SwiftHub Super App API",
-    description="Operational Serving Layer for real-time transaction queries and user profiles.",
+    title="SwiftHub API",
+    description="REST API for querying the SwiftHub analytics warehouse.",
     version="1.0.0"
 )
 
-# DuckDB connection (Read-Only for API)
 DB_PATH = "data/swifthub.duckdb"
 
 def get_db():
     if not os.path.exists(DB_PATH):
-        raise HTTPException(status_code=500, detail="Analytical warehouse not initialized. Run dbt build first.")
+        raise HTTPException(status_code=500, detail="Warehouse not initialized. Run dbt run first.")
     return duckdb.connect(DB_PATH, read_only=True)
 
-# Response Schemas
 class UserProfile(BaseModel):
     user_id: str
     name: str
@@ -38,7 +35,7 @@ class TransactionRecord(BaseModel):
 @app.get("/")
 def root():
     return {
-        "project": "SwiftHub Super App",
+        "project": "SwiftHub",
         "status": "Operational",
         "documentation": "/docs",
         "endpoints": ["/users/{id}", "/transactions/recent"]
@@ -46,7 +43,6 @@ def root():
 
 @app.get("/users/{user_id}", response_model=UserProfile)
 def get_user(user_id: str):
-    """Retrieve a specific user's high-fidelity profile from the dim_users mart."""
     con = get_db()
     try:
         result = con.execute("SELECT * FROM dim_users WHERE user_id = ?", [user_id]).df()
@@ -58,7 +54,6 @@ def get_user(user_id: str):
 
 @app.get("/transactions/recent", response_model=List[TransactionRecord])
 def get_recent_transactions(limit: int = 10):
-    """Fetch the latest transactions from the fct_transactions fact table."""
     con = get_db()
     try:
         result = con.execute(f"SELECT * FROM fct_transactions ORDER BY transaction_timestamp DESC LIMIT {limit}").df()

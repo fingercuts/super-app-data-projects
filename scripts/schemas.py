@@ -55,5 +55,5 @@ class TransactionContract(BaseModel):
         return v
 
 def is_peak_hour(hour: int) -> bool:
-    """Check if the given hour is a peak business hour in Indonesia."""
+    """Return True if the hour falls within typical peak times (7-9 AM or 5-7 PM)."""
     return (7 <= hour <= 9) or (17 <= hour <= 19)

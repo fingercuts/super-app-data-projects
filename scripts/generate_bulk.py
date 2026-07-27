@@ -143,6 +143,33 @@ def generate_bulk_transactions():
     df_payments.to_parquet(os.path.join(OUTPUT_DIR, "payments.parquet"), index=False)
     df_locations.to_parquet(os.path.join(OUTPUT_DIR, "locations.parquet"), index=False)
 
+    # SLA validation processing
+    logger.info("Initiating post-generation data contract SLA validations...")
+    from scripts.schemas import TransactionContract
+    from scripts.sla_tracker import SLATracker
+    from pydantic import ValidationError
+    
+    tracker = SLATracker()
+    results = []
+    run_id = f"RUN-{uuid.uuid4().hex[:8].upper()}"
+    
+    # Validate each row to measure data contract compliance
+    for _, row in df_trx.iterrows():
+        row_dict = row.to_dict()
+        try:
+            # Parse datetime string for Pydantic validation
+            row_dict["date"] = datetime.strptime(row_dict["date"], "%Y-%m-%dT%H:%M:%S")
+            TransactionContract(**row_dict)
+            results.append({"status": "PASS", "check": "TransactionContract"})
+        except ValidationError as e:
+            results.append({
+                "status": "FAIL", 
+                "check": "TransactionContract", 
+                "error": str(e).replace("\n", " ")
+            })
+            
+    tracker.record_run(run_id, results)
+    logger.info(f"SLA run recorded: {run_id} with {len(results)} validation checks.")
     logger.info("Vectorized Mass-Generation completed successfully.")
 
 if __name__ == "__main__":

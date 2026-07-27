@@ -1,21 +1,48 @@
-# Executive Summary: SwiftHub Data Infrastructure Optimization
+# SwiftHub: Executive Summary
 
-## Strategic Context
-SwiftHub is a multi-vertical "Super App" operating in the Indonesian market, providing Ride-Hailing, Food Delivery, and Logistics services. As the ecosystem scaled, the fragmentation of transactional data across different vertical silos became the primary bottleneck for executive decision-making.
+## What This Project Is
 
-## The Engineering Initiative
-The objective of this project was to architect a unified, production-grade data platform that consolidates fragmented vertical streams into a centralized **Medallion Architecture** (Bronze/Silver/Gold).
+SwiftHub is an end-to-end data platform built around a fictional Indonesian super app (think Gojek or Grab). It simulates the full analytics lifecycle: generating realistic transaction data across ride-hailing, food delivery, and fintech (QRIS payments), validating it, transforming it into a star schema, and serving it through a FastAPI endpoint and Streamlit dashboard.
 
-### Key Business Impact
-1.  **Unified Customer 360**: Real-time aggregation of user behavior across all service verticals (RideWay, Foodora, ParcelPro).
-2.  **Operational Efficiency**: Automated fleet monitoring and Geospatial intelligence for hotspot optimization in high-density Indonesian hubs (Java/Bali).
-3.  **Financial Integrity**: Migration from raw CSV extracts to a formal Kimball Star Schema, ensuring a single source of truth for Gross Revenue and AOV metrics.
+The goal was to build something that looks and feels like a real data platform, not just a tutorial project.
 
-## Technical Accomplishments
-- **Robust Ingestion**: Implementation of Pydantic data contracts and Dead Letter Queues (DLQ) to ensure 0% data loss during high-velocity event streams.
-- **Analytical Warehouse**: A vectorized dbt/DuckDB pipeline that transforms millions of records in seconds.
-- **Real-Time Simulation**: A Kafka-inspired architecture that emulates live transaction broadcasts.
-- **Executive BI**: A Streamlit "Control Center" providing the visualization layer for the underlying analytical models.
+## The Architecture
 
----
-*Note: This summary highlights the strategic value of the underlying Data Lakehouse architecture designed for the SwiftHub ecosystem.*
+```
+generate data --> Pydantic validation --> DLQ (bad data) --> dbt transforms --> star schema --> FastAPI --> Streamlit
+```
+
+| Piece | What It Does |
+|-------|-------------|
+| Data generators | Python scripts that create realistic user, driver, merchant, and transaction data |
+| Pydantic contracts | Validates every record before it enters the pipeline. Bad data goes to a DLQ |
+| dbt + DuckDB | Transforms raw data into a Kimball star schema (dim_users, dim_drivers, dim_merchants, fact_daily_revenue, fct_transactions) |
+| FastAPI | REST endpoints for querying recent transactions and user profiles |
+| Streamlit | 4-page dashboard: executive overview, geospatial intelligence, fleet operations, data SLA |
+| SLA Tracker | Logs validation results to SQLite so you can track data quality over time |
+
+## Data Quality Approach
+
+Instead of letting bad data slip through, every record is validated against a Pydantic contract at ingestion. Records that fail go to a Dead Letter Queue (DLQ) — they're not lost, just quarantined for review. The SLA tracker logs pass/fail rates so you can see how clean the data is over time.
+
+dbt adds another layer with automated schema tests (unique keys, not_null, accepted values).
+
+## Things I Had to Figure Out
+
+- **CPU throttling**: The streaming simulation was burning 100% CPU. Switched to vectorized batch writes with sleep cycles to throttle to ~50 events/sec.
+- **Currency formatting**: Streamlit doesn't natively handle Indonesian Rupiah. Wrote custom formatting helpers in `utils_i18n.py`.
+- **dbt portability**: Hardcoded paths broke on different machines. Switched to dbt `vars` and it works everywhere.
+- **SQLite for SLA tracking**: Fine for local dev, but would need Postgres or Prometheus in production.
+
+## What's Next
+
+- Migrate SLA tracker to Postgres for cloud deployment
+- Add Apache Airflow for production orchestration
+- Integrate Great Expectations for advanced data quality
+- Connect to real Kafka instead of the local simulation
+- Deploy to GCP (terraform config is ready)
+
+## Repo
+
+https://github.com/adespc/super-app-data-projects
+MIT License

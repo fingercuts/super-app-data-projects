@@ -1,105 +1,163 @@
-# SwiftHub: Unified Analytics Platform for Super App Ecosystems
+# SwiftHub: Super-App Data Platform
 
-An end-to-end data platform simulating the complex analytics lifecycle of **SwiftHub**, a multi-service super app operating in the Indonesian market.
-# SwiftHub: Enterprise Super-App Data Platform
+End-to-end data platform simulating the analytics lifecycle of SwiftHub, a multi-service super app operating in the Indonesian market. Covers ride-hailing, food delivery, and fintech (QRIS payments).
 
-<div align="center">
-  <img src="docs/assets/executive_dashboard.png" width="49%">
-  <img src="docs/assets/geospatial_intelligence.png" width="49%">
-</div>
-<div align="center">
-  <img src="docs/assets/fleet_operations.png" width="49%">
-  <img src="docs/assets/star_schema.png" width="49%">
-</div>
-<br>
+## What This Is
 
-> SwiftHub is a **Production-Grade** enterprise data ecosystem designed for a multi-vertical Super-App. 
-> It leverages a **Medallion Architecture** to process real-time events from Ride-Hailing, Food Delivery, and Fintech verticals into high-fidelity executive intelligence.
+A portfolio project that walks through the full data pipeline: generating realistic transaction data, validating it against strict contracts, transforming it with dbt into a star schema, serving it via FastAPI, and visualizing it in Streamlit.
 
----
+Think of it as a mini-Gojek/Grab data stack, running locally.
 
-## Project Highlights
+## Tech Stack
 
-- **End-to-End Pipeline**: Unified data lifecycle from raw ingestion through DuckDB/dbt modeling to executive-level BI.
-- **Real-time Engine**: Simulated Kafka broadcast and consumption layer for high-velocity transaction events.
-- **Architectural Parity**: Implements a Kimball Star Schema (Fact + Dimensions) for optimized analytical performance.
-- **Data Contracts**: Strict schema enforcement using Pydantic during the ingestion phase, ensuring high-fidelity data quality.
-- **Technical Excellence**: Fully automated environment management via Makefile and cross-platform setup scripts.
-- **Executive BI**: Multi-page Streamlit dashboard providing geospatial intelligence, fleet monitoring, and financial health metrics.
+- **Python** (Pandas, Numpy, Pydantic v2)
+- **dbt + DuckDB** for transformations (Kimball star schema)
+- **FastAPI** for the serving layer
+- **Streamlit** for the dashboard (4 pages)
+- **Pytest** for testing
+- **Docker** for containerization
+- **GitHub Actions** for CI
 
----
+## Directory Layout
 
-## Technical Stack
-
-- **Languages**: Python (Pandas, Numpy, Pydantic), SQL
-- **Workflow**: dbt (Data Build Tool)
-- **Engine**: DuckDB (OLAP), FastAPI (Serving Layer)
-- **Orchestration**: Vectorized Batch + Real-time Stream Emulation
-- **Frontend**: Streamlit Executive Control Center
-- **DevOps**: GitHub Actions CI, SQLFluff, Pytest, Docker
-
----
-
-## Repository Structure
-
-```text
+```
 data/
-├── raw/            # Source CSV extracts
-├── staging/        # Processed intermediate files
-└── marts/          # Star schema tables (dbt output)
+  production/     # Processed parquet files (users, drivers, merchants, transactions)
+  raw/            # Source data from generators
+  sla_metrics.db  # SLA tracking database
 
-dbt_project/        # dbt models and schema tests
-api/                # FastAPI application serving layer
-dashboard/          # Streamlit executive overview
-scripts/            # Real-time streaming and ingestion logic
-tests/              # Pydantic validation and CI test suite
+dbt_project/      # All dbt stuff
+  models/
+    staging/      # Views over raw parquet files
+    marts/        # Star schema tables (dim_*, fact_*)
+  seeds/          # Static dimension tables (services, promotions)
+  macros/         # Reusable SQL
+
+api/              # FastAPI application
+dashboard/        # Streamlit app
+  pages/          # Individual dashboard pages
+
+scripts/          # Data generation and streaming logic
+  generate_entities.py       # Users, drivers, merchants
+  generate_transactions.py   # Transaction records
+  generate_dirty_data.py     # Intentionally bad data for DLQ testing
+  generate_bulk.py           # Large-scale generator (not in git)
+  stream_realtime.py         # Kafka-inspired streaming simulation
+  sla_tracker.py             # Data quality tracking
+
+tests/              # Pytest suite
+terraform/          # GCP deployment config (reference only)
+docs/               # Governance, forecasting, and insight docs
 ```
 
----
+## Getting Started
 
-## Local Setup
+### Local (recommended)
 
-The project provides a unified setup process for Windows environments.
+```bash
+# Clone and install
+git clone https://github.com/adespc/super-app-data-projects.git
+cd super-app-data-projects
+pip install -r requirements.txt
+pip install dbt-duckdb==1.7.2
 
-1. **Clone the repository**:
-   ```bash
-   git clone <repo-url>
-   cd super-app-data-projects
-   ```
+# Generate sample data
+python scripts/generate_entities.py
+python scripts/generate_transactions.py
+python scripts/generate_dirty_data.py
 
-2. **Automated Setup**:
-   Use the provided PowerShell script to initialize the environment, install dependencies, and configure dbt:
-   ```powershell
-   .\setup_env.ps1
-   ```
+# Transform with dbt
+cd dbt_project
+dbt run --vars '{"data_path": "../data/production"}'
+dbt test
 
-3. **Manual Setup**:
-   If you prefer manual configuration, use the Makefile:
-   ```bash
-   make install
-   ```
+# Go back up and run the dashboard
+cd ..
+streamlit run dashboard/SwiftHub_Analytics.py
+```
 
----
+### Docker
 
-## Data Pipeline Architecture
+```bash
+docker-compose up --build
+```
 
-1. **Generation & Ingestion**: Vectorized Python scripts generate high-fidelity Super App data (Users, Drivers, Merchants, Transactions) with Indonesian locale specificity.
-2. **Real-time Link**: A Kafka-inspired streaming layer simulates live transaction broadcasts.
-3. **Transformation**: dbt transforms raw data into a Kimball Star Schema, enforcing data quality through automated tests.
-4. **Serving**: A FastAPI layer provides recent transaction snapshots for operational monitoring.
-5. **Insights**: The Streamlit dashboard serves as the final consumption layer for executive decision-making.
+Dashboard at localhost:8501, API at localhost:8000.
 
----
+### Makefile
 
-## Documentation
+```bash
+make help          # list all targets
+make pipeline      # generate data -> run dbt -> run tests
+make generate-sample  # just the data
+make dbt-full      # compile, run, test, docs
+```
 
-- [**Executive Summary**](EXECUTIVE_SUMMARY.md): Strategic overview and business impact analysis.
-- [**Governance Guide**](docs/governance_guidelines.md): PII masking and data quality enforcement strategies.
-- [**Insight Reference**](docs/insight_guidelines.md): Key Performance Indicator (KPI) definitions for Super App services.
-- [**Forecasting Manual**](docs/forecasting_guide.md): Analysis of seasonal trends and Indonesian market dynamics.
+## Pipeline Overview
 
----
+```
+generate_entities.py  -->  parquet files
+generate_transactions.py --> transactions + payments + locations
+generate_dirty_data.py   --> DLQ (dead letter queue) for bad records
 
-## License
+parquet files --> dbt staging views --> dbt marts (star schema)
 
-This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for details.
+star schema --> FastAPI (REST) --> Streamlit (dashboard)
+```
+
+## Data Quality
+
+Data contracts are enforced at ingestion using Pydantic v2. Invalid records get routed to a DLQ instead of polluting the data models. The SLA tracker logs validation results to SQLite so you can see pass rates over time.
+
+dbt also runs schema tests (unique, not_null, accepted_values) on every run.
+
+## Engineering Decisions
+
+### Why DuckDB over Postgres?
+Wanted in-memory OLAP speed without running a database server. DuckDB reads parquet files directly, which is perfect for local development. Trade-off: no concurrent writes, but that's fine since transformations run sequentially.
+
+### Why Pydantic v2 contracts?
+Manual type checking is slow and error-prone when you have thousands of transactions from different services. Pydantic catches bad data at the gateway and routes it to the DLQ. Cost: more initial code, but prevents invalid entries from corrupting the warehouse.
+
+### Why FastAPI?
+The async event loop handles concurrent dashboard queries without much overhead. Simple REST endpoints for recent transactions and user profiles.
+
+### Why Streamlit?
+Quick to build, easy to share. Four pages: Executive Overview, Geospatial Intelligence, Fleet Operations, and Data SLA. Indonesian Rupiah formatting and bilingual support (EN/ID) built in.
+
+## What I Learned
+
+- **CPU throttling**: Simulating real-time Kafka broadcasts locally in Python hit 100% CPU. Fixed it with vectorized batch writes and dynamic sleep cycles (~50 events/sec).
+- **SQLite for SLA tracking**: Works fine locally but wouldn't scale. In production, this should go to Prometheus or Datadog.
+- **Currency formatting**: Streamlit doesn't natively format Indonesian Rupiah, so I wrote custom helpers in `utils_i18n.py`.
+- **dbt path portability**: Hardcoded relative paths broke on different machines. Switched to dbt `vars` and it works everywhere now.
+
+## Cloud Deployment
+
+The `terraform/` directory has a reference GCP config (BigQuery, Cloud Run, GCS buckets). It's a starting point, not a finished deployment. To try it:
+
+```bash
+cd terraform
+gcloud auth application-default login
+terraform init
+terraform plan -var="project_id=your-project-id"
+```
+
+## Tests
+
+```bash
+pytest tests/ -v
+```
+
+52 tests across 5 suites: API, validation, SLA tracking, integration, and streaming.
+
+## Docs
+
+- [Executive Summary](EXECUTIVE_SUMMARY.md)
+- [Improvements Log](IMPROVEMENTS.md)
+- [Improvements Round 2](IMPROVEMENTS_ROUND2.md)
+- [Governance Guidelines](docs/governance_guidelines.md)
+- [Insight Guidelines](docs/insight_guidelines.md)
+- [Forecasting Guide](docs/forecasting_guide.md)
+
+MIT License.
