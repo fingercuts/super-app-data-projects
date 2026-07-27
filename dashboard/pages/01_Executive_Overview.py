@@ -3,13 +3,13 @@ import pandas as pd
 import plotly.express as px
 import duckdb
 import os
+from utils_i18n import T, fmt_rp
 
-# Set page config for nested page
 st.set_page_config(layout="wide")
 
-def get_db_connection():
-    # Use read-only connection to existing duckdb
-    return duckdb.connect("data/swifthub.duckdb", read_only=True)
+if "lang" not in st.session_state:
+    st.session_state["lang"] = "EN"
+t = T[st.session_state["lang"]]
 
 st.markdown('''
     <style>
@@ -26,11 +26,11 @@ st.markdown('''
     </style>
 ''', unsafe_allow_html=True)
 
-st.title("📈 Executive Overview")
-st.markdown("Aggregated Real-Time Intelligence from the dbt Analytical Warehouse.")
+st.title(t["exec_title"])
+st.markdown(t["exec_subtitle"])
 
 try:
-    con = get_db_connection()
+    con = duckdb.connect("data/swifthub.duckdb", read_only=True)
     
     # KPIs from normalized Fact table
     metrics = con.execute("""
@@ -42,25 +42,20 @@ try:
         FROM fct_transactions
     """).df()
 
-    def format_rp(value):
-        if value >= 1e9: return f"Rp {value/1e9:.2f} B"
-        elif value >= 1e6: return f"Rp {value/1e6:.2f} M"
-        else: return f"Rp {value:,.0f}"
-
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.markdown(f'<div class="premium-card"><div class="metric-title">Total Revenue</div><div class="metric-value">{format_rp(metrics["rev"][0])}</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="premium-card"><div class="metric-title">{t["total_revenue"]}</div><div class="metric-value">{fmt_rp(metrics["rev"][0])}</div></div>', unsafe_allow_html=True)
     with col2:
-        st.markdown(f'<div class="premium-card"><div class="metric-title">Transactions</div><div class="metric-value">{metrics["tx"][0]:,}</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="premium-card"><div class="metric-title">{t["transactions"]}</div><div class="metric-value">{metrics["tx"][0]:,}</div></div>', unsafe_allow_html=True)
     with col3:
-        st.markdown(f'<div class="premium-card"><div class="metric-title">Active Users</div><div class="metric-value">{metrics["users"][0]:,}</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="premium-card"><div class="metric-title">{t["active_users"]}</div><div class="metric-value">{metrics["users"][0]:,}</div></div>', unsafe_allow_html=True)
     with col4:
-        st.markdown(f'<div class="premium-card"><div class="metric-title">Avg Order Value</div><div class="metric-value">{format_rp(metrics["aov"][0])}</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="premium-card"><div class="metric-title">{t["avg_order"]}</div><div class="metric-value">{fmt_rp(metrics["aov"][0])}</div></div>', unsafe_allow_html=True)
 
     st.divider()
 
     # Trend Analysis
-    st.markdown("### 🗓️ Gross Revenue Trend")
+    st.markdown(f"### {t['revenue_trend']}")
     trend_df = con.execute("""
         SELECT 
             date_trunc('month', transaction_timestamp) as month,

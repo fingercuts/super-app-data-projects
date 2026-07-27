@@ -3,11 +3,12 @@ import pandas as pd
 import duckdb
 import os
 import sys
+from utils_i18n import init_translation, T
 
 # ----------------- UI CONFIG -----------------
 st.set_page_config(
     page_title="SwiftHub Control Center",
-    page_icon="⚡",
+    page_icon="Dashboard",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -31,28 +32,29 @@ st.markdown('''
     </style>
 ''', unsafe_allow_html=True)
 
-st.title("⚡ SwiftHub Super App: Executive Home")
+# Initialize localization
+init_translation()
+t = T[st.session_state["lang"]]
+
+st.title(t["home_title"])
 st.divider()
 
 col1, col2 = st.columns([2, 1])
 
 with col1:
-    st.markdown("""
-    ### Welcome to the Platinum Data Platform
-    This portal visualizes the **SwiftHub Data Ecosystem**, an Indonesian Super App simulating millions of transactions across logistics, food, and finances.
+    st.markdown(f"### {t['home_welcome']}")
+    st.markdown(t["home_desc"])
     
-    #### 🏗️ Architecture Stack
+    st.markdown(f"#### {t['home_stack']}")
+    st.markdown("""
     - **Storage**: Vectorized Parquet Data Lake (2M+ Records)
     - **Orchestration**: Dockerized Apache Airflow
     - **Transformation**: dbt Core + DuckDB (Star Schema)
     - **Streaming**: Apache Kafka Event Bus
-    
-    #### 🚀 Navigation Guide
-    Use the sidebar to explore detailed analytics:
-    1. **01_Executive_Overview**: High-level KPIs and business health.
-    2. **02_Geospatial_Intelligence**: Heatmaps of Indonesian city hubs.
-    3. **03_Fleet_Operations**: RideWay and ParcelPro logistics performance.
     """)
+    
+    st.markdown(f"#### {t['home_nav']}")
+    st.markdown(t["home_nav_desc"])
 
 with col2:
     st.image("docs/assets/dashboard_preview.png", caption="System Architecture Preview")
@@ -60,7 +62,7 @@ with col2:
 st.divider()
 
 # Quick System Status
-st.markdown("### 🔌 System Connectivity Status")
+st.markdown(f"### {t['system_status']}")
 c1, c2, c3 = st.columns(3)
 
 def check_data():
@@ -70,12 +72,12 @@ def check_duckdb():
     return os.path.exists("data/swifthub.duckdb")
 
 with c1:
-    status = "🟢 ONLINE" if check_data() else "🔴 OFFLINE"
-    st.metric("Batch Data Lake", status)
+    status = t["online"] if check_data() else t["offline"]
+    st.metric(t["batch_lake"], status)
 
 with c2:
-    status = "🟢 ACTIVE" if check_duckdb() else "🟡 PENDING"
-    st.metric("dbt Analytical Warehouse", status)
+    status = t["active"] if check_duckdb() else t["pending"]
+    st.metric(t["dbt_warehouse"], status)
 
 with c3:
-    st.metric("Last Data Refresh", "Today")
+    st.metric(t["last_refresh"], t["today"])
