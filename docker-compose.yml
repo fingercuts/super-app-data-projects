@@ -1,13 +1,73 @@
 version: '3.8'
+
 services:
-  # Standalone generator service for local execution
+  # ==========================================
+  # Core Application Services
+  # ==========================================
+  
+  # Data Generator Service (runs sample data generation)
   data-generator:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ./data:/app/data
       - ./logs:/app/logs
-    env_file:
-      - .env
+      - ./scripts:/app/scripts
+    environment:
+      - DBT_DATABASE_PATH=/app/data/swifthub.duckdb
+    command: >
+      bash -c "
+        python scripts/generate_entities.py &&
+        python scripts/generate_transactions.py &&
+        python scripts/generate_dirty_data.py &&
+        echo 'Data generation complete'
+      "
+    networks:
+      - swifthub-network
+
+  # Streamlit Dashboard
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./dashboard:/app/dashboard
+      - ./data:/app/data
+      - ./scripts:/app/scripts
+    ports:
+      - "8501:8501"
+    environment:
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_HEADLESS=true
+    command: ["streamlit", "run", "dashboard/SwiftHub_Analytics.py", "--server.port=8501", "--server.address=0.0.0.0"]
+    depends_on:
+      - data-generator
+    networks:
+      - swifthub-network
+
+  # FastAPI Serving Layer
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./api:/app/api
+      - ./data:/app/data
+      - ./scripts:/app/scripts
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+    command: ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    depends_on:
+      - data-generator
+    networks:
+      - swifthub-network
+
+  # ==========================================
+  # Infrastructure Services (Optional)
+  # ==========================================
 
   # Kafka Real-time Streaming Bus
   zookeeper:
@@ -15,6 +75,10 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 200
+    ports:
+      - "2181:2181"
+    networks:
+      - swifthub-network
 
   kafka:
     image: confluentinc/cp-kafka:latest
@@ -29,6 +93,8 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+      - swifthub-network
 
   # -- AIRFLOW ENTERPRISE SETUP --
   # Uncomment the below sections to stand up a local Apache Airflow that runs the generator on a Cron schedule.
@@ -38,7 +104,13 @@ services:
       - POSTGRES_USER=airflow
       - POSTGRES_PASSWORD=airflow
       - POSTGRES_DB=airflow
-  
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - swifthub-network
+
   airflow-webserver:
     image: apache/airflow:2.8.1
     depends_on:
@@ -55,7 +127,9 @@ services:
     ports:
       - "8080:8080"
     command: webserver
-  
+    networks:
+      - swifthub-network
+
   airflow-scheduler:
     image: apache/airflow:2.8.1
     depends_on:
@@ -69,3 +143,13 @@ services:
       - ./data:/app/data
       - ./.env:/opt/airflow/.env
     command: scheduler
+    networks:
+      - swifthub-network
+
+networks:
+  swifthub-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
+    driver: local
