@@ -1,0 +1,10 @@
+[theme]
+# SwiftHub Geospatial & Logistics Theme
+primaryColor = "#00F0FF"             # Geospatial Cyan/Teal
+backgroundColor = "#0F172A"          # Deep Slate Dark
+secondaryBackgroundColor = "#1E293B" # Card Slate
+textColor = "#F8FAFC"                # Crisp Slate Light
+font = "sans serif"
+
+[layout]
+width = "wide"
