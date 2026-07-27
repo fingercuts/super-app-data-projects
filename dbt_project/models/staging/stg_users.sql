@@ -1,7 +1,7 @@
 {{ config(materialized='view') }}
 
 WITH raw_users AS (
-    SELECT * FROM read_parquet('../data/production/users.parquet')
+    SELECT * FROM read_parquet('{{ var("data_path", "../data/production") }}/users.parquet')
 )
 
 SELECT

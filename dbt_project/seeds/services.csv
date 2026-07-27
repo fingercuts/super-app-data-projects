@@ -1,0 +1,8 @@
+service_id,service_name,department,category
+RW-01,RideWay Go,RideWay,Ride-Hailing
+RW-02,RideWay Car,RideWay,Ride-Hailing
+FD-01,Foodora Express,Foodora,Food Delivery
+QM-01,QuickMart Essentials,QuickMart,Grocery
+PP-01,ParcelPro Express,ParcelPro,Logistics
+PL-01,PayLink Wallet,PayLink,Fintech
+LC-01,LifeConnect Shopping,LifeConnect,E-Commerce

@@ -1,0 +1,79 @@
+version: 2
+
+models:
+  - name: dim_users
+    description: "User dimension table from stg_users."
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+      - name: gender
+        tests:
+          - accepted_values:
+              values: ['Male', 'Female']
+      - name: loyalty_tier
+        tests:
+          - accepted_values:
+              values: ['Silver', 'Gold', 'Platinum']
+
+  - name: dim_drivers
+    description: "Driver dimension table from stg_drivers."
+    columns:
+      - name: driver_id
+        tests:
+          - unique
+          - not_null
+      - name: vehicle_type
+        tests:
+          - accepted_values:
+              values: ['Motorcycle', 'Car']
+
+  - name: dim_merchants
+    description: "Merchant dimension table from stg_merchants."
+    columns:
+      - name: merchant_id
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_transactions
+    description: "Transaction fact table with joined dimensions."
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: quantity
+        tests:
+          - not_null
+      - name: total_amount
+        tests:
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+
+  - name: dim_customer_ltv
+    description: "Customer lifetime value analysis."
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+      - name: lifetime_value
+        tests:
+          - not_null
+
+  - name: fact_revenue_trends
+    description: "Daily revenue trends with moving averages."
+    columns:
+      - name: transaction_date
+        tests:
+          - not_null
+      - name: department
+        tests:
+          - not_null
+      - name: net_revenue
+        tests:
+          - not_null

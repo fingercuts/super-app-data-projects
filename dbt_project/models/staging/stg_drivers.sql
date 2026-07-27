@@ -1,7 +1,7 @@
 {{ config(materialized='view') }}
 
 WITH raw_drivers AS (
-    SELECT * FROM read_parquet('../data/production/drivers.parquet')
+    SELECT * FROM read_parquet('{{ var("data_path", "../data/production") }}/drivers.parquet')
 )
 
 SELECT

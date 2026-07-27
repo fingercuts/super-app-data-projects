@@ -1,0 +1,4 @@
+promotion_id,promotion_name,campaign_type,discount_percentage,start_date,end_date
+P-WELCOME,Welcome Bonus,New User,0.5,2024-01-01,2024-12-31
+P-HARBOLNAS,Harbolnas 11.11,Seasonal,0.3,2024-11-10,2024-11-12
+P-LEBARAN,Lebaran Feast,Holiday,0.25,2024-04-01,2024-04-15

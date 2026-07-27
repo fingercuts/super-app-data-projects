@@ -1,7 +1,7 @@
 {{ config(materialized='view') }}
 
 WITH raw_merchants AS (
-    SELECT * FROM read_parquet('../data/production/merchants.parquet')
+    SELECT * FROM read_parquet('{{ var("data_path", "../data/production") }}/merchants.parquet')
 )
 
 SELECT
@@ -10,5 +10,5 @@ SELECT
     CAST(service_type AS VARCHAR) AS service_type,
     CAST(department AS VARCHAR) AS department,
     CAST(city AS VARCHAR) AS city,
-    CAST(rating AS DOUBLE) AS merchant_rating
+    CAST(rating AS DOUBLE) AS rating
 FROM raw_merchants
