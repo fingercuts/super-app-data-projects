@@ -61,3 +61,6 @@ data/sample/*.csv
 .agnes/
 upload_*
 
+
+data/sla_metrics.db
+__pycache__/
